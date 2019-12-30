@@ -1,0 +1,151 @@
+/*******************************************************************************
+ * ROFI Color theme
+ * User: Sergio Morales
+ * Copyright: Sergio Morales
+ *******************************************************************************/
+
+* {
+    selected-normal-foreground:  rgba (  17,  17,  17, 100 % );
+    foreground:                  rgba ( 50, 112, 75, 100 % );
+    normal-foreground:           @foreground;
+    alternate-normal-background: @normal-background;
+    red:                         rgba ( 220, 50, 47, 100 % );
+    selected-urgent-foreground:  rgba ( 220, 50, 47, 100 % );
+    blue:                        rgba ( 38, 139, 210, 100 % );
+    urgent-foreground:           rgba ( 220, 50, 47, 100 % );
+    alternate-urgent-background: rgba ( 245, 245, 245, 100 % );
+    active-foreground:           rgba ( 194, 202, 208, 100 % );
+    lightbg:                     rgba ( 238, 232, 213, 100 % );
+    selected-active-foreground:  rgba ( 194, 202, 208, 100 % );
+    alternate-active-background: rgba ( 245, 245, 245, 100 % );
+    background:                  rgba (  17,  17,  17, 100 % );
+    bordercolor:                 rgba ( 195, 193, 61, 100 % );
+    alternate-normal-foreground: @foreground;
+    normal-background:           rgba ( 255, 255, 255, 0 % );
+    lightfg:                     rgba ( 88, 104, 117, 100 % );
+    selected-normal-background:  rgba ( 195, 193,  61, 80 % );
+    border-color:                rgba ( 195, 193,  61, 100 % );
+    spacing:                     2;
+    separatorcolor:              none;
+    urgent-background:           rgba ( 255, 255, 255, 100 % );
+    selected-urgent-background:  rgba ( 82, 148, 226, 100 % );
+    alternate-urgent-foreground: @urgent-foreground;
+    background-color:            rgba ( 0, 0, 0, 0 % );
+    alternate-active-foreground: @active-foreground;
+    active-background:           rgba ( 255, 255, 255, 100 % );
+    selected-active-background:  rgba ( 82, 148, 226, 100 % );
+
+	font: "Inconsolata Regular 13";
+}
+#window {
+    background-color: @background;
+    border:           2;
+    padding:          20;
+	width:			70%;
+}
+#mainbox {
+    border:  0;
+    padding: 10;
+}
+#message {
+    border:       0px 0px 0px ;
+    border-color: @separatorcolor;
+    padding:      1px ;
+}
+#textbox {
+    text-color: @foreground;
+}
+#listview {
+    fixed-height: 0;
+    border:       0px 0px 0px ;
+    border-color: @separatorcolor;
+    spacing:      2px ;
+    scrollbar:    true;
+    padding:      2px 0px 0px ;
+}
+#element {
+    border:  0;
+    padding: 15px 15px ;
+}
+#element.normal.normal {
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+#element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+#element.normal.active {
+    background-color: @active-background;
+    text-color:       @active-foreground;
+}
+#element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+#element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+#element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+#element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+}
+#element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+#element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color:       @alternate-active-foreground;
+}
+#scrollbar {
+    width:        0 ;
+    border:       0;
+    handle-width: 0px ;
+    padding:      0;
+}
+#sidebar {
+    border:       0px 0px 0px ;
+    border-color: @separatorcolor;
+}
+#button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+#inputbar {
+    spacing:    0;
+    text-color: @normal-foreground;
+    padding:    10px 20px 20px;
+	margin: 0px 0px 15px;
+	border: 0px 0px 2px;
+	border-color: @selected-normal-background;
+}
+#case-indicator {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+#entry {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+#prompt {
+    spacing:    0;
+    text-color: @normal-foreground;
+	font: "Inconsolata Bold 15";
+	margin: -2px 0 0 0;
+}
+#inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+#textbox-prompt-colon {
+    expand:     false;
+    str:        " > ";
+    margin:     0 0.3em 0em 0em ;
+    text-color: @normal-foreground;
+	font: "Inconsolata Bold 13";
+}

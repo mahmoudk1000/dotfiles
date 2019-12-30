@@ -1,0 +1,12 @@
+! Rofi
+rofi.font: Ubuntu Mono 12
+rofi.padding: 10
+rofi.width: 25
+rofi.line-padding: 7
+rofi.columns: 1
+rofi.lines:		20
+rofi.color-enabled: true
+rofi.hide-scrollbar: true
+rofi.separator-style: solid
+rofi.color-window: #282828, #1d2021, #282828
+rofi.color-normal: #282828, #ebdbb2, #282828, #282828, #81a2be

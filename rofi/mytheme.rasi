@@ -1,0 +1,154 @@
+/* global settings and color variables */
+* {
+   maincolor:        #06A284;
+   highlight:        bold #00EDBE;
+   urgentcolor:      #00EDBE;
+
+   fgwhite:          #ffffff;
+   blackdarkest:     #000000;
+   blackwidget:      #000000;
+   blackentry:       #000000;
+   blackselect:      #000000;
+   darkgray:         #000000;
+   scrollbarcolor:   #505050;
+   font: "Iosevka Medium 10";
+   background-color: @blackdarkest;
+}
+
+window {
+   background-color: @blackdarkest;
+   anchor: center;
+   location: center;
+   y-offset: 0%;
+   width: 300;
+   padding: 10px;
+   
+}
+
+mainbox {
+   background-color: @blackdarkest;
+   spacing:0px;
+   
+   
+}
+
+message {
+   padding: 6px 10px;
+   background-color:@blackwidget;
+}
+
+textbox {
+   text-color:@darkgray;
+   background-color:@blackwidget;
+}
+
+listview {
+   fixed-height: false;
+   dynamic: true;
+   scrollbar: false;
+   spacing: 0px;
+   padding: 1px 0px 0px 0px;
+   margin: 0px 0px 1px 0px;
+   background: @blackdarkest;
+}
+
+element {
+   padding: 4px 10px;
+}
+
+element normal.normal {
+   padding: 0px 15px;
+   background-color: @blackentry;
+   text-color: @fgwhite;
+}
+
+element normal.urgent {
+   background-color: @blackentry;
+   text-color: @urgentcolor;
+}
+
+element normal.active {
+   background-color: @blackentry;
+   text-color: @maincolor;
+}
+
+element selected.normal {
+    background-color: @blackselect;
+    text-color:       #048A71;
+}
+
+element selected.urgent {
+    background-color: @urgentcolor;
+    text-color:       @blackdarkest;
+}
+
+element selected.active {
+    background-color: @blackdarkest;
+    text-color:       #00EDBE;
+}
+
+element alternate.normal {
+    background-color: @blackentry;
+    text-color:       @fgwhite;
+}
+
+element alternate.urgent {
+    background-color: @blackentry;
+    text-color:       @urgentcolor;
+}
+
+element alternate.active {
+    background-color: @blackentry;
+    text-color:       @maincolor;
+}
+
+scrollbar {
+   background-color: @blackwidget;
+   handle-color: @blackdarkest;
+   handle-width: 15px;
+}
+
+mode-switcher {
+   background-color: @blackwidget;
+}
+
+button {
+   background-color: @blackwidget;
+   text-color:       @darkgray;
+}
+
+button selected {
+    text-color:       @maincolor;
+}
+
+inputbar {
+   background-color: @blackdarkest;
+   spacing: 0px;
+   children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+
+prompt {
+   padding:0px 10px;
+   background-color: @blackwidget;
+   text-color: #00FFCF;
+}
+
+entry {
+   padding:0px 6px;
+   background-color:@blackwidget;
+   text-color:#ffffff;
+}
+
+case-indicator {
+   padding:6px 10px;
+   text-color:@maincolor;
+   background-color:@blackwidget;
+}
+#textbox-prompt-colon {
+	padding:0px 0px;
+    expand:     false;
+    str:        "⎇";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: #00FFCF;
+    background-color:@blackwidget;
+}

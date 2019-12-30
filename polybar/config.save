@@ -1,0 +1,265 @@
+[bar/top_bar]
+width = 100%
+height = 27
+radius = 0
+fixed-center = true
+
+background = #000000
+foreground = #c6c6c6
+
+line-size = 3
+line-color =
+
+border-size = 0
+border-color =
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = "scientifica:style=regular:size=17;1"
+font-1 = "mononoki Nerd Font:style=Solid:size=10;1"
+font-2 = "Roboto Condensed:size=10;1"
+
+modules-left = wlan eth
+modules-center = i3
+modules-right = playing spotify backlight pulseaudio lang battery date powermenu
+
+tray-position =
+;tray-padding =
+wm-restack = i3
+override-redirect = true
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+label-mode-padding = 2
+label-mode-foreground = #828282
+label-mode-background = #000000
+
+label-focused = %index%
+label-focused-background = #43C59E
+label-focused-foreground = #000000
+label-focused-padding = 2
+
+label-unfocused = %index%
+label-unfocused-background = #43C59E
+label-unfocused-foreground = #000000
+label-unfocused-padding = 2
+
+label-visible = %index%
+label-visible-background = #43C59E
+label-visible-foreground = #000000
+label-visible-padding = 2
+
+label-urgent = %index%
+label-urgent-background = #BA2922
+label-urgent-padding = 2
+
+[module/lang]
+type = custom/script
+exec = ~/bin/lang.sh
+format-prefix = " "
+interval = 0.1
+label-font = 1
+format-background = #43C59E
+format-foreground = #000000
+format-padding           = 1
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = "<ramp-volume> <label-volume> "
+format-volume-background = #43C59E
+label-volume = %percentage%%
+label-volume-foreground = #000000
+label-muted = muted
+;format-muted-prefix = "  "
+label-muted-background = #43C59E
+label-muted-foreground = #000000
+ramp-volume-0 = " "
+ramp-volume-1 = " "
+ramp-volume-2 = " "
+ramp-volume-foreground = #000000
+ramp-headphones-0 = "  "
+ramp-headphones-foreground = #000000
+
+[module/backlight]
+
+type = custom/script
+interval = 0.2
+exec = ~/bin/light.sh
+scroll-up = exec light -A 5
+scroll-down = exec light -U 5
+format-prefix = " "
+label = %output%
+format-background = #43C59E
+format-foreground = #000000
+format-padding           = 1
+
+[module/wlan]
+type = internal/network
+interface = wlan0
+interval = 3.0
+click-left = rofi-wifi-menu &
+click-right = rofi-wifi-menu &
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-foreground = #000000
+format-connected-background = #43C59E
+format-connected-padding = 2
+label-connected = %essid% | %downspeed:1:10% | %local_ip%
+label-connected-foreground = #000000
+format-disconnected-prefix  = "睊"
+format-disconnected-foreground = #000000
+format-disconnected-background = #43C59E
+
+format-disconnected =
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = #000000
+
+[module/eth]
+type = internal/network
+interface = enp2s0
+interval = 3.0
+
+format-connected-padding = 2
+format-connected-foreground = #000000
+format-connected-background = #43C59E
+format-connected-prefix = " "
+format-connected-prefix-foreground = #000000
+label-connected = %local_ip%
+
+format-disconnected =
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+date-alt = " %Y-%m-%d"
+
+;time = %H:%M
+time = %I:%M %p
+time-alt = %H:%M:%S
+
+format-prefix = ""
+format-foreground = #000000
+format-background = #43C59E
+format-padding = 2
+
+label = %date% %time%
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT0
+adapter = ADP0
+
+poll-interval = 2
+time-format = %H:%M
+
+format-charging = "<animation-charging><label-charging>"
+format-discharging = "<ramp-capacity><label-discharging>"
+format-full-prefix = "  "
+format-full-prefix-foreground = #000000
+format-full-prefix-background = #43C59E
+label-full-foreground = #000000
+label-full-background = #43C59E
+label-charging-foreground = #000000
+label-charging-background = #43C59E
+label-discharging-background = #43C59E
+label-discharging-foreground = #000000
+
+ramp-capacity-0 = "  "
+ramp-capacity-1 = "  "
+ramp-capacity-2 = "  "
+ramp-capacity-foreground = #000000
+ramp-capacity-background = #43C59E
+
+animation-charging-0 = " ♥  "
+animation-charging-1 = " ♥  "
+animation-charging-2 = " ♥  "
+animation-charging-3 = " ♥  "
+animation-charging-4 = " ♥  "
+animation-charging-foreground = #000000
+animation-charging-background = #43C59E
+animation-charging-framerate = 750
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = "  "
+format = <label>
+exec = python ~/bin/spotify_status.py -f '{artist}: {song}'
+format-background = #43C59E
+format-foreground = #000000
+
+;[module/playing]
+;type = custom/script
+;exec = ~/bin/playing.sh
+;format-prefix = " "
+;interval = 0.1
+;label-font = 0
+;click-left = playerctl play-pause
+;format-background = #43C59E
+;format-foreground = #000000
+;format-padding           = 1
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = "  "
+label-open-foreground = #43C59E
+label-close = "  cancel"
+label-close-foreground = #43C59E
+label-separator = |
+label-separator-foreground = #43C59E
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+menu-0-2 = log off
+menu-0-2-exec = menu-open-3
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = reboot
+
+menu-2-0 = power off
+menu-2-0-exec = poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+menu-3-0 = log off
+menu-3-0-exec = pkill -KILL -u $USER
+menu-3-1 = cancel
+menu-3-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
