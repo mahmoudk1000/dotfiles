@@ -6,7 +6,7 @@ fixed-center = true
 offset-x=5%
 offset-y=.5%
 
-background = #000f1f
+background = #0f111a
 foreground = #c6c6c6
 
 line-size = 3
@@ -45,21 +45,21 @@ wrapping-scroll = false
 
 label-mode-padding = 2
 label-mode-foreground = #828282
-label-mode-background = #000f1f
+label-mode-background = #0f111a
 
 label-focused = %index%
 label-focused-background = #04a7a7
-label-focused-foreground = #000f1f
+label-focused-foreground = #0f111a
 label-focused-padding = 2
 
 label-unfocused = %index%
 label-unfocused-background = #04a7a7
-label-unfocused-foreground = #000f1f
+label-unfocused-foreground = #0f111a
 label-unfocused-padding = 2
 
 label-visible = %index%
 label-visible-background = #04a7a7
-label-visible-foreground = #000f1f
+label-visible-foreground = #0f111a
 label-visible-padding = 2
 
 label-urgent = %index%
@@ -73,7 +73,7 @@ format-prefix = " "
 interval = 0.1
 label-font = 1
 format-background = #04a7a7
-format-foreground = #000f1f
+format-foreground = #0f111a
 format-padding           = 1
 
 [module/pulseaudio]
@@ -82,17 +82,17 @@ type = internal/pulseaudio
 format-volume = "<ramp-volume> <label-volume> "
 format-volume-background = #04a7a7
 label-volume = %percentage%%
-label-volume-foreground = #000f1f
+label-volume-foreground = #0f111a
 label-muted = muted
 ;format-muted-prefix = "  "
 label-muted-background = #04a7a7
-label-muted-foreground = #000f1f
+label-muted-foreground = #0f111a
 ramp-volume-0 = " "
 ramp-volume-1 = " "
 ramp-volume-2 = " "
-ramp-volume-foreground = #000f1f
+ramp-volume-foreground = #0f111a
 ramp-headphones-0 = "  "
-ramp-headphones-foreground = #000f1f
+ramp-headphones-foreground = #0f111a
 
 [module/mpd-song]
 type = internal/mpd
@@ -106,7 +106,7 @@ format-playing = "<label-song>"
 #format-paused = "<label-song>"
 format-paused  =
 format-stopped =
-label-song-foreground = #000f1f
+label-song-foreground = #0f111a
 label-song-background = #04a7a7
 
 ; Seconds to sleep between progressbar/song timer sync
@@ -123,7 +123,7 @@ format-playing = "<label-song> "
 #format-stopped = "<label-song> "
 format-paused  =
 format-stopped =
-label-song-foreground = #000f1f
+label-song-foreground = #0f111a
 label-song-background = #04a7a7
 
 
@@ -137,7 +137,7 @@ scroll-down = exec light -U 5
 format-prefix = " "
 label = %output%
 format-background = #04a7a7
-format-foreground = #000f1f
+format-foreground = #0f111a
 format-padding           = 1
 
 [module/wlan]
@@ -148,13 +148,13 @@ click-left = rofi-wifi-menu &
 click-right = rofi-wifi-menu &
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-foreground = #000f1f
+format-connected-foreground = #0f111a
 format-connected-background = #04a7a7
 format-connected-padding = 2
 label-connected = %essid% | %downspeed:1:10% | %local_ip%
-label-connected-foreground = #000f1f
+label-connected-foreground = #0f111a
 format-disconnected-prefix  = "睊"
-format-disconnected-foreground = #000f1f
+format-disconnected-foreground = #0f111a
 format-disconnected-background = #04a7a7
 
 format-disconnected =
@@ -164,7 +164,7 @@ ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = #000f1f
+ramp-signal-foreground = #0f111a
 
 [module/eth]
 type = internal/network
@@ -172,10 +172,10 @@ interface = enp2s0
 interval = 3.0
 
 format-connected-padding = 2
-format-connected-foreground = #000f1f
+format-connected-foreground = #0f111a
 format-connected-background = #04a7a7
 format-connected-prefix = " "
-format-connected-prefix-foreground = #000f1f
+format-connected-prefix-foreground = #0f111a
 label-connected = %local_ip%
 
 format-disconnected =
@@ -192,7 +192,7 @@ time = %I:%M %p
 time-alt = %H:%M:%S
 
 format-prefix = ""
-format-foreground = #000f1f
+format-foreground = #0f111a
 format-background = #04a7a7
 format-padding = 2
 
@@ -212,19 +212,19 @@ time-format = %H:%M
 format-charging = "<animation-charging><label-charging>"
 format-discharging = "<ramp-capacity><label-discharging>"
 format-full-prefix = "  "
-format-full-prefix-foreground = #000f1f
+format-full-prefix-foreground = #0f111a
 format-full-prefix-background = #04a7a7
-label-full-foreground = #000f1f
+label-full-foreground = #0f111a
 label-full-background = #04a7a7
-label-charging-foreground = #000f1f
+label-charging-foreground = #0f111a
 label-charging-background = #04a7a7
 label-discharging-background = #04a7a7
-label-discharging-foreground = #000f1f
+label-discharging-foreground = #0f111a
 
 ramp-capacity-0 = "  "
 ramp-capacity-1 = "  "
 ramp-capacity-2 = "  "
-ramp-capacity-foreground = #000f1f
+ramp-capacity-foreground = #0f111a
 ramp-capacity-background = #04a7a7
 
 animation-charging-0 = " ♥  "
@@ -232,7 +232,7 @@ animation-charging-1 = " ♥  "
 animation-charging-2 = " ♥  "
 animation-charging-3 = " ♥  "
 animation-charging-4 = " ♥  "
-animation-charging-foreground = #000f1f
+animation-charging-foreground = #0f111a
 animation-charging-background = #04a7a7
 animation-charging-framerate = 750
 
@@ -243,7 +243,7 @@ format-prefix = "  "
 format = <label>
 exec = python ~/bin/spotify_status.py -f '{artist}: {song}'
 format-background = #04a7a7
-format-foreground = #000f1f
+format-foreground = #0f111a
 
 ;[module/playing]
 ;type = custom/script
@@ -253,7 +253,7 @@ format-foreground = #000f1f
 ;label-font = 0
 ;click-left = playerctl play-pause
 ;format-background = #04a7a7
-;format-foreground = #000f1f
+;format-foreground = #0f111a
 ;format-padding           = 1
 
 [module/powermenu]

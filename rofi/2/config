@@ -1,0 +1,12 @@
+! Rofi
+rofi.font: scientifica 17
+rofi.padding: 10
+rofi.width: 25
+rofi.line-padding: 7
+rofi.columns: 1
+rofi.lines:		15
+rofi.color-enabled: true
+rofi.hide-scrollbar: true
+rofi.separator-style: solid
+rofi.color-window: #000f1f, #1d2021, #000f1f
+rofi.color-normal: #000f1f, #ebdbb2, #000f1f, #000f1f, #43C59E
