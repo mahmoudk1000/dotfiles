@@ -10,7 +10,7 @@ configuration {
     background-color: #0f111a;
     border-color: #0f111a;
     text-color: #ffffff;
-    font: "Roboto 11";
+    font: "scientifica 14";
 }
 
 #window {
