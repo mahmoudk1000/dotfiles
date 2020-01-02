@@ -1,2 +1,2 @@
 # Dotfiles
-#Blue Rice
+## Blue Rice
