@@ -1,6 +1,6 @@
 # Dotfiles
 
-[Blue Rice]
+### Blue Rice
 
 ## **Requirements:**
 
