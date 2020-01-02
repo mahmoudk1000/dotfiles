@@ -7,8 +7,8 @@ configuration {
 * {
     lines: 15;
     columns: 1;
-    background-color: #0f111a;
-    border-color: #0f111a;
+    background-color: #100f0f;
+    border-color: #100f0f;
     text-color: #ffffff;
     font: "scientifica 14";
 }
@@ -49,7 +49,7 @@ configuration {
 
 #element selected {
     background-color: #04a7a7;
-    text-color: #0f111a;
+    text-color: #100f0f;
 }
 
 
