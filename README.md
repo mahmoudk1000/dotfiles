@@ -5,6 +5,8 @@
 ## **Requirements:**
 
 - i3-gaps-rounded
+- Rofi
+- Spicetify
 - Zsh
 - Polybar
 - Kitty Terminal
