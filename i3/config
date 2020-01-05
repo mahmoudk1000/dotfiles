@@ -23,11 +23,11 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show drun
 
 #start wifi menu
-bindsym $mod+i exec --no-startup-id ~/bin/rofi-wifi-menu.sh
+bindsym $mod+i exec --no-startup-id rofi-wifi-menu
 
 #start power menu
-bindsym $mod+p exec rofi -show Power -modi Power:~/bin/power.sh
-#bindsym $mod+p exec /home/mahmoud/.config/rofi/scripts/powermenu.sh
+#bindsym $mod+p exec rofi -show Power -modi Power:~/bin/power.sh
+bindsym $mod+p exec /home/mahmoud/.config/rofi/scripts/powermenu.sh
 
 # Screenshot
 bindsym Print exec --no-startup-id "scrot '%S.png' -e 'mv $f $$(xdg-user-dir PICTURES)/ArchLabs-%S-$wx$h.png ; feh $$(xdg-user-dir PICTURES)/ArchLabs-%S-$wx$h.png'"
@@ -203,11 +203,6 @@ font pango:dweep 8
 for_window [class=".*"] title_format "<span color='#e4e4e4' font='cherry 7'> > %title</span>"
 for_window [class=".*"] floating enable
 for_window [class="brave-browser"] fullscreen enable
-for_window [class="min"] fullscreen enable
-
-bindsym $mod+q exec "qutebrowser"
-assign [class="qutebrowser"] $ws1
-assign [class="min"] $ws1
 
 set $mode_gaps Toggle gaps: (1) on (2) off
 bindsym $mod+F12 mode "$mode_gaps"
