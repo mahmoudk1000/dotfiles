@@ -10,7 +10,7 @@ configuration {
     background-color: #100f0f;
     border-color: #100f0f;
     text-color: #ffffff;
-    font: "scientifica 14";
+    font: "Fira Code 11";
 }
 
 #window {
