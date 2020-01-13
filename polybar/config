@@ -27,7 +27,7 @@ font-2 = "Roboto Condensed:size=10;1"
 
 modules-left = wlan eth
 modules-center = i3
-modules-right = playing spotify backlight pulseaudio lang battery date powermenu
+modules-right = spotify backlight pulseaudio lang battery date powermenu
 
 tray-position =
 ;tray-padding =
@@ -144,14 +144,15 @@ format-padding           = 1
 type = internal/network
 interface = wlan0
 interval = 3.0
-click-left = rofi-wifi-menu &
-click-right = rofi-wifi-menu &
+click-left = nm-connection
+click-right = nm-connection
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-foreground = #100f0f
 format-connected-background = #8FBAC9
 format-connected-padding = 2
-label-connected = %essid% | %downspeed:1:10% | %local_ip%
+;label-connected = %{A1:nm-connection:}%essid%%{A}
+label-connected = %{A1:nm-connection-editor:}%essid%%{A} | %downspeed:1:10% | %local_ip%
 label-connected-foreground = #100f0f
 format-disconnected-prefix  = "睊"
 format-disconnected-foreground = #100f0f
@@ -188,6 +189,7 @@ date =
 date-alt = " %Y-%m-%d"
 
 ;time = %H:%M
+time-TZ = "Africa/Cairo"
 time = %I:%M %p
 time-alt = %H:%M:%S
 
@@ -245,16 +247,16 @@ exec = python ~/bin/spotify_status.py -f '{artist}: {song}'
 format-background = #8FBAC9
 format-foreground = #100f0f
 
-;[module/playing]
-;type = custom/script
-;exec = ~/bin/playing.sh
-;format-prefix = " "
-;interval = 0.1
-;label-font = 0
-;click-left = playerctl play-pause
-;format-background = #8FBAC9
-;format-foreground = #100f0f
-;format-padding           = 1
+[module/playing]
+type = custom/script
+exec = ~/bin/playing.sh
+format-prefix = " "
+interval = 0.1
+label-font = 0
+click-left = playerctl play-pause
+format-background = #8FBAC9
+format-foreground = #100f0f
+format-padding           = 1
 
 [module/powermenu]
 type = custom/menu
@@ -274,7 +276,7 @@ menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
 menu-0-1 = power off
 menu-0-1-exec = menu-open-2
-menu-0-2 = log off
+menu-0-2 = lock
 menu-0-2-exec = menu-open-3
 
 menu-1-0 = cancel
@@ -287,8 +289,8 @@ menu-2-0-exec = poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
-menu-3-0 = log off
-menu-3-0-exec = pkill -KILL -u $USER
+menu-3-0 = lock
+menu-3-0-exec = betterlockscreen -l dim
 menu-3-1 = cancel
 menu-3-1-exec = menu-open-0
 
