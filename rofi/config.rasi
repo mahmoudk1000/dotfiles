@@ -18,7 +18,7 @@ configuration {
     border-radius: 4px;
     padding: 15px;
     width: 25%;
-    height: 50%;
+    height: 33.33%;
 }
 
 #mainbox {
@@ -46,7 +46,6 @@ configuration {
     border-radius: 30px;
     padding: 4 4 4 4 ;
 }
-
 #element selected {
     background-color: #8FBAC9;
     text-color: #100f0f;
