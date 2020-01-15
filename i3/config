@@ -7,11 +7,13 @@ new_window pixel 1
 new_float normal
 border_radius 14
 
+focus_follows_mouse yes
+
 hide_edge_borders both
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-bindmouse button1+Shift drag
+bindmouse Mod+right-click drag
 
 # start a terminal
 bindsym $mod+Return exec kitty
@@ -31,6 +33,9 @@ bindsym $mod+p exec /home/mahmoud/.config/rofi/scripts/powermenu.sh
 
 # Screenshot
 bindsym Print exec --no-startup-id "scrot '%S.png' -e 'mv $f $$(xdg-user-dir PICTURES)/ArchLabs-%S-$wx$h.png ; feh $$(xdg-user-dir PICTURES)/ArchLabs-%S-$wx$h.png'"
+
+#lock screen
+bindsym $mod+shift+l exec betterlockscreen -l dim
 
 # Keyboard switch
 bindsym Ctrl+Arabic_2 exec setxkbmap -model pc104 -layout us
@@ -56,7 +61,7 @@ bindsym $mod+Right focus right
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
+#bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
