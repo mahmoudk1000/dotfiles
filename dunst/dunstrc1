@@ -1,0 +1,34 @@
+[global]
+font = Fira Code bold 12
+format= "%s\n%b"
+markup = full
+indicate_hidden = yes
+alignment = center
+word_wrap = yes
+geometry = "0x0-30-30"
+shrink = no
+follow = none
+show_indicators = no
+separator_height = 0
+padding = 10
+horizontal_padding = 20
+
+[urgency_low]
+background = "#000000"
+foreground = "#ffffff"
+timeout = 8
+
+[urgency_normal]
+background = "#000000"
+foreground = "#ffffff"
+timeout = 8
+
+[urgency_critical]
+background = "#000000"
+foreground = "#ffffff"
+timeout = 0
+
+[shortcuts]
+close = ctrl+space
+
+# vim: ft=cfg
