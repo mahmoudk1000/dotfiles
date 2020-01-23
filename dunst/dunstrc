@@ -12,6 +12,9 @@ show_indicators = no
 separator_height = 0
 padding = 10
 horizontal_padding = 20
+icon_position = left
+max_icon_size = 64
+icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
 [urgency_low]
 background = "#000000"
