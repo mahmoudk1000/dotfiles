@@ -1,10 +1,10 @@
 [bar/top_bar]
-width = 90%
 height = 27
-radius = 10
 fixed-center = true
-offset-x=5%
-offset-y=.5%
+radius = 8
+offset-x= .5%
+offset-y= .5%
+width = 99%
 
 background = #100f0f
 foreground = #c6c6c6
@@ -47,7 +47,7 @@ label-mode-padding = 2
 label-mode-foreground = #828282
 label-mode-background = #100f0f
 
-label-focused = %index%
+label-focused =  %index% 
 label-focused-background = #8FBAC9
 label-focused-foreground = #100f0f
 label-focused-padding = 2
@@ -154,7 +154,7 @@ format-connected-foreground = #100f0f
 format-connected-background = #8FBAC9
 format-connected-padding = 2
 ;label-connected = %{A1:nm-connection:}%essid%%{A}
-label-connected = %{A1:nm-connection-editor:}%essid%%{A} | %downspeed:1:10% | %local_ip%
+label-connected = %essid% | %downspeed:1:10% & %upspeed:1:10% | %local_ip%
 label-connected-foreground = #100f0f
 format-disconnected-prefix  = "睊"
 format-disconnected-foreground = #100f0f
@@ -191,7 +191,6 @@ date =
 date-alt = " %Y-%m-%d"
 
 ;time = %H:%M
-time-TZ = "Africa/Cairo"
 time = %I:%M %p
 time-alt = %H:%M:%S
 
@@ -268,10 +267,13 @@ expand-right = true
 format-spacing = 1
 
 label-open = "  "
+#label-open-background = #8FBAC9
 label-open-foreground = #8FBAC9
 label-close = "  cancel"
+#label-close-background = #8FBAC9
 label-close-foreground = #8FBAC9
 label-separator = |
+#label-separator-background = #8FBAC9
 label-separator-foreground = #8FBAC9
 
 menu-0-0 = reboot
