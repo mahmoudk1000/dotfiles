@@ -5,7 +5,7 @@ font pango:Tamsyn 8
 
 new_window pixel 1
 new_float normal
-border_radius 14
+border_radius 8
 
 focus_follows_mouse yes
 
@@ -28,6 +28,9 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 #bindsym $mod+i exec --no-startup-id rofi-wifi-menu
 bindsym $mod+i exec /home/mahmoud/bin/rofi-wifi-menu.sh
 
+#start bluetooth menu
+bindsym $mod+b exec --no-startup-id rofi-bluetooth
+
 #start power menu
 #bindsym $mod+p exec rofi -show Power -modi Power:~/bin/power.sh
 bindsym $mod+p exec /home/mahmoud/.config/rofi/scripts/powermenu.sh
@@ -43,8 +46,8 @@ bindsym Ctrl+Arabic_2 exec setxkbmap -model pc104 -layout us
 bindsym Ctrl+1 exec setxkbmap -model pc104 -layout ara -variant qwerty_digits
 
 # backlight
-bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
 
 # change focus
