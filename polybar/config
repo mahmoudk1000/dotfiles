@@ -146,14 +146,14 @@ format-padding           = 1
 type = internal/network
 interface = wlan0
 interval = 3.0
-click-left = nm-connection
-click-right = nm-connection
+tail = true
+click-left = networkmanager_dmenu &
+click-right = networkmanager_dmenu &
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-foreground = #100f0f
 format-connected-background = #8FBAC9
 format-connected-padding = 2
-;label-connected = %{A1:nm-connection:}%essid%%{A}
 label-connected = %essid% | %downspeed:1:10% & %upspeed:1:10% | %local_ip%
 label-connected-foreground = #100f0f
 format-disconnected-prefix  = "睊"
@@ -286,10 +286,10 @@ menu-0-2-exec = menu-open-3
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
-menu-1-1-exec = reboot
+menu-1-1-exec = systemctl reboot
 
 menu-2-0 = power off
-menu-2-0-exec = poweroff
+menu-2-0-exec = systemctl poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
