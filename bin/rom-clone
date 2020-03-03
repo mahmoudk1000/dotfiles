@@ -1,0 +1,38 @@
+
+Manifest - https://github.com/LineageOS/android
+Device Tree - https://github.com/LineageOS/android_...
+Common Device Tree - https://github.com/LineageOS/android_...
+Kernel Tree - https://github.com/LineageOS/android_...
+Vendor Tree - https://github.com/TheMuppets/proprie...
+
+to clone:
+
+git clone {url} -b {branch name} {directory}
+git clone https://github.com/LineageOS/android_... -b lineage-16.0 device/xiaomi/dipper
+git clone https://github.com/LineageOS/android_... -b lineage-16.0 device/xiaomi/sdm845-common
+git clone https://github.com/LineageOS/android_... -b lineage-16.0 kernel/xiaomi/sdm845
+git clone https://github.com/TheMuppets/proprie... -b lineage-16.0 vendor/xiaomi
+
+
+now. after cloning all the trees required. Lineage os is ready to build!
+to build:
+
+. build/envsetup.sh
+lunch lineage_{device codename}-userdebug
+brunch lineage_{device codename}-userdebug
+
+since my device codename is dipper.
+
+
+. build/envsetup.sh
+lunch lineage_dipper-userdebug
+brunch lineage_dipper-userdebug
+
+to fix error, clone the repo :android_packages_resources_devicesettings.
+
+git clone https://github.com/LineageOS/android_... -b lineage-16.0 packages/resources/devicesettings
+
+after cloning the android_packages_resources_devicesettings repo, brunch.
+
+brunch lineage_dipper-userdebug
+

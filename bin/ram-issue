@@ -1,0 +1,1 @@
+. build/envsetup.sh && lunch xtended_vince-userdebug && mka api-stubs-docs && mka hiddenapi-lists-docs && mka system-api-stubs-docs && mka test-api-stubs-docs && mka xtended
