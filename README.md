@@ -5,7 +5,7 @@
 ### Blue Rice (old-rice)
 
 ## **Requirements:**
-## *Thanks for Blacksuan19 who was inspiration*
+### *Thanks for Blacksuan19 who was my inspiration*
 
 - i3-gaps-rounded
 - Rofi
