@@ -7,10 +7,10 @@ configuration {
 * {
     lines: 15;
     columns: 1;
-    background-color: #100f0f;
+    background-color: #0F111A;
     border-color: #100f0f;
     text-color: #ffffff;
-    font: "Fira Code 11";
+    font: "Lemon 11";
 }
 
 #window {
