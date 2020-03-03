@@ -1,0 +1,306 @@
+[bar/top_bar]
+height = 27
+fixed-center = true
+radius = 8
+offset-x= .5%
+offset-y= .5%
+width = 99%
+
+background = #100f0f
+foreground = #c6c6c6
+
+line-size = 3
+line-color =
+
+border-size = 0
+border-color =
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = "scientifica:style=regular:size=14;1"
+font-1 = "mononoki Nerd Font:style=Solid:size=10;1"
+font-2 = "Roboto Condensed:size=10;1"
+
+modules-left = wlan eth
+modules-center = i3
+modules-right = spotify backlight pulseaudio lang battery date powermenu
+
+tray-position =
+;tray-padding =
+wm-restack = i3
+override-redirect = true
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+label-mode-padding = 2
+label-mode-foreground = #828282
+label-mode-background = #100f0f
+
+label-focused =  %index% 
+label-focused-background = #8FBAC9
+label-focused-foreground = #100f0f
+label-focused-padding = 2
+
+label-unfocused = %index%
+label-unfocused-background = #8FBAC9
+label-unfocused-foreground = #100f0f
+label-unfocused-padding = 2
+
+label-visible = %index%
+label-visible-background = #8FBAC9
+label-visible-foreground = #100f0f
+label-visible-padding = 2
+
+label-urgent = %index%
+label-urgent-background = #BA2922
+label-urgent-padding = 2
+
+[module/lang]
+type = custom/script
+exec = ~/bin/lang.sh
+format-prefix = " "
+interval = 0.1
+label-font = 1
+format-background = #8FBAC9
+format-foreground = #100f0f
+format-padding           = 1
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = "<ramp-volume> <label-volume> "
+format-volume-background = #8FBAC9
+label-volume = %percentage%%
+label-volume-foreground = #100f0f
+label-muted = muted
+label-muted-background = #8FBAC9
+label-muted-foreground = #100f0f
+format-muted-prefix = "  "
+format-muted-prefix-background = #8FBAC9
+format-muted-prefix-foreground = #100f0f
+ramp-volume-0 = " "
+ramp-volume-1 = " "
+ramp-volume-2 = " "
+ramp-volume-foreground = #100f0f
+ramp-headphones-0 = "  "
+ramp-headphones-foreground = #100f0f
+
+[module/mpd-song]
+type = internal/mpd
+
+; Host where mpd is running (either ip or domain name)
+; Can also be the full path to a unix socket where mpd is running.
+host = 127.0.0.1
+port = 6600
+label-song = %title%
+format-playing = "<label-song>"
+#format-paused = "<label-song>"
+format-paused  =
+format-stopped =
+label-song-foreground = #100f0f
+label-song-background = #8FBAC9
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
+
+[module/mpd-artist]
+type = "internal/mpd"
+host = 127.0.0.1
+port = 6600
+label-song = %album%
+format-playing = "<label-song> "
+#format-paused = "<label-song> "
+#format-stopped = "<label-song> "
+format-paused  =
+format-stopped =
+label-song-foreground = #100f0f
+label-song-background = #8FBAC9
+
+
+[module/backlight]
+
+type = custom/script
+interval = 0.2
+exec = ~/bin/light.sh
+scroll-up = exec light -A 5
+scroll-down = exec light -U 5
+format-prefix = " "
+label = %output%
+format-background = #8FBAC9
+format-foreground = #100f0f
+format-padding           = 1
+
+[module/wlan]
+type = internal/network
+interface = wlan0
+interval = 3.0
+tail = true
+click-left = networkmanager_dmenu &
+click-right = networkmanager_dmenu &
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-foreground = #100f0f
+format-connected-background = #8FBAC9
+format-connected-padding = 2
+label-connected = %essid% | %downspeed:1:10% & %upspeed:1:10% | %local_ip%
+label-connected-foreground = #100f0f
+format-disconnected-prefix  = "睊"
+format-disconnected-foreground = #100f0f
+format-disconnected-background = #8FBAC9
+
+format-disconnected =
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = #100f0f
+
+[module/eth]
+type = internal/network
+interface = enp2s0
+interval = 3.0
+
+format-connected-padding = 2
+format-connected-foreground = #100f0f
+format-connected-background = #8FBAC9
+format-connected-prefix = " "
+format-connected-prefix-foreground = #100f0f
+label-connected = %local_ip%
+
+format-disconnected =
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+date-alt = " %Y-%m-%d"
+
+;time = %H:%M
+time = %I:%M %p
+time-alt = %H:%M:%S
+
+format-prefix = ""
+format-foreground = #100f0f
+format-background = #8FBAC9
+format-padding = 2
+
+label = %date% %time%
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT0
+adapter = ADP0
+
+poll-interval = 2
+time-format = %H:%M
+
+format-charging = "<animation-charging><label-charging>"
+format-discharging = "<ramp-capacity><label-discharging>"
+format-full-prefix = "  "
+format-full-prefix-foreground = #100f0f
+format-full-prefix-background = #8FBAC9
+label-full-foreground = #100f0f
+label-full-background = #8FBAC9
+label-charging-foreground = #100f0f
+label-charging-background = #8FBAC9
+label-discharging-background = #8FBAC9
+label-discharging-foreground = #100f0f
+
+ramp-capacity-0 = "  "
+ramp-capacity-1 = "  "
+ramp-capacity-2 = "  "
+ramp-capacity-foreground = #100f0f
+ramp-capacity-background = #8FBAC9
+
+animation-charging-0 = " ♥  "
+animation-charging-1 = " ♥  "
+animation-charging-2 = " ♥  "
+animation-charging-3 = " ♥  "
+animation-charging-4 = " ♥  "
+animation-charging-foreground = #100f0f
+animation-charging-background = #8FBAC9
+animation-charging-framerate = 750
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = "  "
+format = <label>
+exec = python ~/bin/spotify_status.py -f '{artist}: {song}'
+format-background = #8FBAC9
+format-foreground = #100f0f
+
+[module/playing]
+type = custom/script
+exec = ~/bin/playing.sh
+format-prefix = " "
+interval = 0.1
+label-font = 0
+click-left = playerctl play-pause
+format-background = #8FBAC9
+format-foreground = #100f0f
+format-padding           = 1
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = "  "
+#label-open-background = #8FBAC9
+label-open-foreground = #8FBAC9
+label-close = "  cancel"
+#label-close-background = #8FBAC9
+label-close-foreground = #8FBAC9
+label-separator = |
+#label-separator-background = #8FBAC9
+label-separator-foreground = #8FBAC9
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+menu-0-2 = lock
+menu-0-2-exec = menu-open-3
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = systemctl reboot
+
+menu-2-0 = power off
+menu-2-0-exec = systemctl poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+menu-3-0 = lock
+menu-3-0-exec = betterlockscreen -l dim
+menu-3-1 = cancel
+menu-3-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
