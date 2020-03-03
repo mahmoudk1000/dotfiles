@@ -1,6 +1,6 @@
 set $mod Mod4
 
-font pango:Tamsyn 8
+font wenquanyi 8
 
 
 new_window pixel 1
@@ -32,7 +32,7 @@ bindsym $mod+i exec /home/mahmoud/bin/rofi-wifi-menu.sh
 bindsym $mod+b exec --no-startup-id rofi-bluetooth
 
 #start power menu
-#bindsym $mod+p exec rofi -show Power -modi Power:~/bin/power.sh
+bindsym $mod+shift+o exec clearine
 bindsym $mod+p exec /home/mahmoud/.config/rofi/scripts/powermenu.sh
 
 # Screenshot
@@ -42,8 +42,8 @@ bindsym Print exec --no-startup-id "scrot '%S.png' -e 'mv $f $$(xdg-user-dir PIC
 bindsym $mod+shift+l exec betterlockscreen -l dim
 
 # Keyboard switch
-bindsym Ctrl+Arabic_2 exec setxkbmap -model pc104 -layout us
-bindsym Ctrl+1 exec setxkbmap -model pc104 -layout ara -variant qwerty_digits
+#bindsym Ctrl+Arabic_2 exec setxkbmap -model pc104 -layout us
+#bindsym Ctrl+1 exec setxkbmap -model pc104 -layout ara -variant qwerty_digits
 
 # backlight
 bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5
@@ -191,9 +191,11 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
+exec --no-startup-id mpd
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always "setxkbmap -model pc104 -layout us,ara -variant ,, -option grp:alt_shift_toggle"
 
 # audio
 bindsym XF86AudioPlay        exec --no-startup-id playerctl play-pause
@@ -208,15 +210,15 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 2
 
 #for_window [class=".*"] title_format "<span color='#e4e4e4' font='scientifica 7'></span>"
 #
-client.focused          #00ff00     #00ff00     #000ff0   #ffffff 			#ffffff
-client.focused_inactive #121212     #121212 		$fg  			#555555       #555555
-client.unfocused        #121212 		#121212     $fg  			#555555       #555555
+client.focused          #00ff00     #00ff00     #000ff0         #ffffff 	  #ffffff
+client.focused_inactive #121212     #121212 	$fg  			#555555       #555555
+client.unfocused        #121212 	#121212     $fg  			#555555       #555555
 client.urgent           #121212     #121212     $fg  			#555555       #555555
 client.placeholder      #121212     #121212     $fg  			#555555       #555555
 
 client.background       #ffffff
 
-for_window [class="^.*"] border pixel 0 
+for_window [class="^.*"] border pixel 0
 for_window [class="^.*"] floating enable
 ## Gaps
 gaps inner 10
