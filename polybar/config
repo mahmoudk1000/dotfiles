@@ -52,7 +52,7 @@ module-margin-left = 3
 module-margin-right = 3
 
 font-0 = SF Pro Display:style=Bold:size=10:antialias=true;2
-font-1 = TerminessTTF Nerd Font:weight=bold:size=10;2
+font-11 = TerminessTTF Nerd Font:weight=bold:size=10;2
 font-2 = unifont:fontformat=truetype:size=8:antialias=false;2
 font-3 = siji:pixelsize=10;2
 font-4 = FontAwesome 5 Free:size=10:style=Solid;2
@@ -62,6 +62,7 @@ font-7 = Font Awesome 5 Brands:pixelsize=10;2
 font-8 = Font Awesome 5 Free:pixelsize=10;2
 font-9 = MotoyaLMaru:antialias=true:size=8:1
 font-10 = wqy-zenhei:size=10
+font-1 = Typicons:size=15
 
 modules-left = menu spotify_status mpd
 modules-center = i3
@@ -134,8 +135,8 @@ expand-right = true
 format-spacing = 1
 label-separator = "  "
 format = <label-toggle><menu>
-label-open = ""
-label-close = ""
+label-open = ""
+label-close = ""
 label-open-foreground = ${xrdb:color2:#222}
 label-close-foreground = ${xrdb:color2:#222}
 menu-0-0 = "App Menu"
@@ -185,7 +186,7 @@ label-offline = mpd is offline
 
 interval = 1
 
-label-song =    %artist% - %title%
+label-song =    %artist% - %title%
 label-song-maxlen = 35
 label-song-ellipsis = true
 
@@ -214,11 +215,11 @@ format-disconnected-foreground = #fff
 
 format-disconnected = " No-Wifi "
 
-ramp-signal-0 = " "
-ramp-signal-1 = " "
-ramp-signal-2 = " "
-ramp-signal-3 = " "
-ramp-signal-4 = " "
+ramp-signal-0 = " "
+ramp-signal-1 = " "
+ramp-signal-2 = " "
+ramp-signal-3 = " "
+ramp-signal-4 = " "
 ramp-signal-foreground = #88c0d0
 
 [module/battery]
@@ -234,7 +235,7 @@ time-format = %H:%M
 
 format-charging = "<animation-charging><label-charging>"
 format-discharging = "<ramp-capacity><label-discharging>"
-format-full-prefix = "   "
+format-full-prefix = "   "
 format-full-prefix-background = ${colors.background}
 format-full-prefix-foreground = #bf616a
 label-full-foreground = #fff
@@ -244,17 +245,20 @@ label-charging-background = ${colors.background}
 label-discharging-background = ${colors.background}
 label-discharging-foreground = #fff
 
-ramp-capacity-0 = "   "
-ramp-capacity-1 = "   "
-ramp-capacity-2 = "   "
+ramp-capacity-0 = "   "
+ramp-capacity-1 = "   "
+ramp-capacity-2 = "   "
+ramp-capacity-3 = "   "
+ramp-capacity-4 = "   "
+ramp-capacity-5 = "   "
 ramp-capacity-foreground = #bf616a
 ramp-capacity-background = ${colors.background}
 
-animation-charging-0 = " ♥   "
-animation-charging-1 = " ♥   "
-animation-charging-2 = " ♥   "
-animation-charging-3 = " ♥   "
-animation-charging-4 = " ♥   "
+animation-charging-0 = "    "
+animation-charging-1 = "    "
+animation-charging-2 = "    "
+animation-charging-3 = "    "
+animation-charging-4 = "    "
 animation-charging-foreground = #bf616a
 animation-charging-background = ${colors.background}
 animation-charging-framerate = 750
@@ -267,31 +271,23 @@ scroll-up = exec light -A 5
 scroll-down = exec light -U 5
 ;format-background = #131520
 format-prefix-foreground = ${xrdb:color5:#222}
-format-prefix = "  "
+format-prefix = "  "
 ;label = " 盛 %percentage%% "
 
 [module/lang]
 type = custom/script
 exec = ~/bin/lang.sh
-format-prefix = "  "
+format-prefix = "  "
 interval = 0.1
 label-font = 1
 format-padding           = 1
-format-prefix-foreground = ${xrdb:color5:#222}
-
-[module/updates]
-type = custom/script
-exec = checkupdates | wc -l
-tail = true
-interval = 5
-format-prefix = "  "
 format-prefix-foreground = ${xrdb:color5:#222}
 
 [module/date]
 type = internal/date
 interval = 5
 label = %time%
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${xrdb:color3:#222}
 
 ;date = %d/%m
@@ -309,64 +305,20 @@ label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
 ; Only applies if <ramp-volume> is used
-ramp-volume-0 = " "
-ramp-volume-1 = " "
-ramp-volume-2 = " "
+ramp-volume-0 = " "
+ramp-volume-1 = " "
+ramp-volume-2 = " "
 ramp-volume-foreground = ${xrdb:color4:#222}
 
-label-muted = muted
+label-muted =  muted
 label-muted-foreground = #666
 
 [module/poweroff]
 type = custom/script
 exec = echo " "
 click-left = "~/bin/power.sh"
-format-prefix = ""
+format-prefix = ""
 format-prefix-foreground = ${xrdb:color2:#222}
-
-; Inactive modules
-
-[module/clipboard]
-type = custom/script
-exec = echo ""
-click-left = "~/scripts/clipboard.sh"
-
-[module/xwindow]
-format = <label>
-type = internal/xwindow
-label = %title:0:45:...%
-format-foreground = #b8bfc6
-
-[module/xkeyboard]
-label-layout = %layout%
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-prefix-foreground = ${colors.foreground-alt}
-
-label-indicator-padding = 0
-label-indicator-margin = 0
-label-indicator-background = ${colors.secondary}
-
-[module/right-corner]
-type = custom/text
-content = " "
-content-background = ${colors.background}
-content-padding = 0
-
-[module/left-corner]
-type = custom/text
-content = " "
-content-background = ${colors.background}
-content-padding = 0
-
-[module/weather]
-type = custom/script
-exec = echo "$(curl wttr.in/Voznesensk?format="+%t")"
-tail = true
-interval = 10
-format-prefix = "  "
-format-prefix-foreground = ${xrdb:color5:#222}
 
 ; Other
 
