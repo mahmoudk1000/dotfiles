@@ -1,7 +1,6 @@
 # Dotfiles
 
 ### DeepBlue Rice
-*Thanks for Blacksuan19*
 
 ### Blue Rice (old-rice)
 
