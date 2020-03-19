@@ -1,6 +1,6 @@
 # Dotfiles
 
-### DeepBlue Rice --> 80's for new (new changes)
+### DeepBlue Rice --> 80's for now (new changes)
 
 ### Blue Rice (old-rice)
 
