@@ -18,7 +18,7 @@
 ;==========================================================
 
 [colors]
-background = #0F111A
+background = #0000000
 background-alt = #22262a
 foreground = #ffffff
 foreground-alt = #8e9aa4
@@ -51,7 +51,8 @@ padding-right = 5
 module-margin-left = 3
 module-margin-right = 3
 
-font-0 = SF Pro Display:style=Bold:size=10:antialias=true;2
+font-0 = AntipastoPro:style=DemiBold:size=12
+font-12 = SF Pro Display:style=Bold:size=10:antialias=true;2
 font-11 = TerminessTTF Nerd Font:weight=bold:size=10;2
 font-2 = unifont:fontformat=truetype:size=8:antialias=false;2
 font-3 = siji:pixelsize=10;2
@@ -97,9 +98,9 @@ wrapping-scroll = false
 
 ws-icon-0 = 1;一
 ws-icon-1 = 2;二
-ws-icon-2 = 3;三 
+ws-icon-2 = 3;三
 ws-icon-3 = 4;四
-ws-icon-4 = 5;五 
+ws-icon-4 = 5;五
 ws-icon-5 = 6;六
 ws-icon-6 = 7;七
 ws-icon-7 = 8;八
@@ -161,12 +162,12 @@ menu-2-1 = "Discord"
 menu-2-1-exec = discord &
 
 menu-3-0 = "VIM"
-menu-3-0-exec = kitty -e vim &
+menu-3-0-exec = kitty -e nvim &
 menu-3-1 = "Sublime Text"
 menu-3-1-exec = subl3 &
 
 menu-4-0 = "Intellij"
-menu-4-0-exec = intellij-idea-community &
+menu-4-0-exec = intellij-idea-ultimate-edition &
 menu-4-1 = "Netbeans"
 menu-4-1-exec = netbeans &
 
@@ -180,21 +181,25 @@ exec = python /home/mahmoud/bin/spotify_status.py -f '{artist} - {song}'
 
 [module/mpd]
 type = internal/mpd
-format-online =  <label-song>
-;format-offline = <label-offline>
+
 label-offline = mpd is offline
+format-online = <icon-prev> <toggle> <icon-next>   <label-song>
+format-offline = <label-offline>
+host = 127.0.0.1
+port = 6600
+icon-prev = 
+icon-stop = "  "
+icon-play = "  "
+icon-pause = "  "
+icon-next = 
 
-interval = 1
-
-label-song =    %artist% - %title%
-label-song-maxlen = 35
+label-song-maxlen = 25
 label-song-ellipsis = true
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+bar-progress-width = 10
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
 
 [module/wifi]
 type = internal/network
@@ -209,7 +214,9 @@ format-connected-foreground = #0198E1
 format-connected-padding = 0
 label-connected = %essid% | %downspeed:1:10% & %upspeed:1:10%
 label-connected-foreground = #fff
-format-disconnected-prefix  = " 睊"
+format-disconnected-prefix  = "  "
+format-disconnected-prefix-background = ${colors.background}
+format-disconnected-prefix-foreground = #ffdd42
 format-disconnected-background = ${colors.background}
 format-disconnected-foreground = #fff
 

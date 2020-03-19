@@ -1,5 +1,6 @@
 set $mod Mod4
 
+
 font wenquanyi 8
 
 
@@ -33,13 +34,14 @@ bindsym $mod+b exec --no-startup-id rofi-bluetooth
 
 #start power menu
 bindsym $mod+shift+o exec clearine
-bindsym $mod+p exec /home/mahmoud/.config/rofi/scripts/powermenu.sh
+#bindsym $mod+p exec /home/mahmoud/.config/rofi/scripts/powermenu.sh
+bindsym $mod+p exec --no-startup-id rofi_run -l
 
 # Screenshot
 bindsym Print exec --no-startup-id "scrot '%S.png' -e 'mv $f $$(xdg-user-dir PICTURES)/ArchLabs-%S-$wx$h.png ; feh $$(xdg-user-dir PICTURES)/ArchLabs-%S-$wx$h.png'"
 
 #lock screen
-bindsym $mod+shift+l exec betterlockscreen -l dim
+bindsym $mod+shift+l  exec --no-startup-id betterlockscreen -l dim
 
 # Keyboard switch
 #bindsym Ctrl+Arabic_2 exec setxkbmap -model pc104 -layout us
@@ -186,7 +188,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Autostart applications
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id nitrogen --restore; sleep 1; picom picom -C -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -219,18 +221,39 @@ client.placeholder      #121212     #121212     $fg  			#555555       #555555
 client.background       #ffffff
 
 for_window [class="^.*"] border pixel 0
-for_window [class="^.*"] floating enable
+#for_window [class="^.*"] floating enable
 ## Gaps
+#smart_gaps on
 gaps inner 10
-gaps outer 15
+gaps outer 10
 
 font pango:dweep 8
-for_window [class=".*"] title_format "<span color='#e4e4e4' font='cherry 7'> > %title</span>"
-for_window [class=".*"] floating enable
-for_window [class="brave-browser"] fullscreen enable
+#for_window [class=".*"] title_format "<span color='#e4e4e4' font='cherry 7'> > %title</span>"
+#for_window [class=".*"] floating enable
+
+
+
+
+
+for_window [class=".*"] title_format "%title  ⋯  %class"
+title_align center
+
+# Set inner/outer gaps
+gaps inner 20
+gaps outer 0
+gaps top 25
+gaps bottom 0
+
+
+
+
+
+
+
+
 
 set $mode_gaps Toggle gaps: (1) on (2) off
-bindsym $mod+F12 mode "$mode_gaps"
+bindsym $mod+g mode "$mode_gaps"
 mode "$mode_gaps" {
     bindsym 1 mode "default", gaps inner all set 15, gaps outer all set 0
     bindsym 2 mode "default", gaps inner all set 1, gaps outer all set 1
