@@ -51,7 +51,8 @@ padding-right = 5
 module-margin-left = 3
 module-margin-right = 3
 
-font-0 = AntipastoPro:style=DemiBold:size=12
+font-0 = Oduda:size=12
+;font-0 = AntipastoPro:style=DemiBold:size=12
 font-12 = SF Pro Display:style=Bold:size=10:antialias=true;2
 font-11 = TerminessTTF Nerd Font:weight=bold:size=10;2
 font-2 = unifont:fontformat=truetype:size=8:antialias=false;2
@@ -67,7 +68,7 @@ font-1 = Typicons:size=15
 
 modules-left = menu spotify_status mpd
 modules-center = i3
-modules-right = pulseaudio xbacklight battery wifi lang date poweroff
+modules-right = pulseaudio xbacklight battery wifi lang date
 
 tray-position = none
 tray-background = ${colors.background}
@@ -138,8 +139,8 @@ label-separator = "  "
 format = <label-toggle><menu>
 label-open = ""
 label-close = ""
-label-open-foreground = ${xrdb:color2:#222}
-label-close-foreground = ${xrdb:color2:#222}
+label-open-foreground = ${xrdb:color4:#222}
+label-close-foreground = ${xrdb:color4:#222}
 menu-0-0 = "App Menu"
 menu-0-0-exec = rofi -show drun -width 30 -lines 20 -location 1 -xoffset 25 -yoffset 91 -columns 2
 menu-0-1 = "Browsers"
@@ -174,7 +175,7 @@ menu-4-1-exec = netbeans &
 [module/spotify_status]
 type = custom/script
 format-prefix = " "
-format-prefix-foreground = ${xrdb:color3:#222}
+format-prefix-foreground = ${xrdb:color2:#222}
 interval = 1
 format = <label>
 exec = python /home/mahmoud/bin/spotify_status.py -f '{artist} - {song}'
