@@ -24,11 +24,13 @@ local TopPanel = function(s)
 		height = panel_height,
 		width = s.geometry.width,
 		x = s.geometry.x,
+        --x = 0,
 		y = dpi(panel_y),
+        --y = 0,
 		bg = beautiful.background,
 		fg = beautiful.fg_normal
 	}
-	
+
 
 	panel:struts
 	{
@@ -38,7 +40,7 @@ local TopPanel = function(s)
 
 	panel:connect_signal(
 		'mouse::enter',
-		function() 
+		function()
 			local w = mouse.current_wibox
 			if w then
 				w.cursor = 'left_ptr'
@@ -187,8 +189,8 @@ local TopPanel = function(s)
 			local day = os.date('%d')
 			local month = os.date('%B')
 
-			local first_digit = string.sub(day, 0, 1) 
-			local last_digit = string.sub(day, -1) 
+			local first_digit = string.sub(day, 0, 1)
+			local last_digit = string.sub(day, -1)
 
 			if first_digit == '0' then
 			  day = last_digit
@@ -206,7 +208,7 @@ local TopPanel = function(s)
 			end
 
 			local date_str = 'Today is the ' ..
-			'<b>' .. day .. ordinal .. 
+			'<b>' .. day .. ordinal ..
 			' of ' .. month .. '</b>.\n' ..
 			'And it\'s fucking ' .. os.date('%A')
 
@@ -217,7 +219,7 @@ local TopPanel = function(s)
 
 
 	s.clock_widget:connect_signal(
-		'button::press', 
+		'button::press',
 		function(self, lx, ly, button)
 			-- Hide the tooltip when you press the clock widget
 			if s.clock_tooltip.visible and button == 1 then
@@ -234,32 +236,32 @@ local TopPanel = function(s)
 		long_weekdays     = true,
 		margin            = dpi(5),
 		screen            = s,
-		style_month       = { 
-			border_width    = dpi(0), 
+		style_month       = {
+			border_width    = dpi(0),
 			padding         = dpi(20),
 			shape           = function(cr, width, height)
 				gears.shape.partially_rounded_rect(
 					cr, width, height, true, true, true, true, beautiful.groups_radius
 				)
 			end
-		},  
-		style_header      = { 
-			border_width    = 0, 
+		},
+		style_header      = {
+			border_width    = 0,
 			bg_color        = beautiful.transparent
 		},
-		style_weekday     = { 
-			border_width    = 0, 
+		style_weekday     = {
+			border_width    = 0,
 			bg_color        = beautiful.transparent
 		},
 
-		style_normal      = { 
-			border_width    = 0, 
+		style_normal      = {
+			border_width    = 0,
 			bg_color        = beautiful.transparent
 		},
-		style_focus       = { 
-			border_width    = dpi(0), 
-			border_color    = beautiful.fg_normal, 
-			bg_color        = beautiful.accent, 
+		style_focus       = {
+			border_width    = dpi(0),
+			border_color    = beautiful.fg_normal,
+			bg_color        = beautiful.accent,
 			shape           = function(cr, width, height)
 				gears.shape.partially_rounded_rect(
 					cr, width, height, true, true, true, true, dpi(4))
@@ -269,11 +271,11 @@ local TopPanel = function(s)
 
 
 	s.month_calendar:attach(
-		s.clock_widget, 
-		'br', 
-		{ 
+		s.clock_widget,
+		'br',
+		{
 			on_pressed = true,
-			on_hover = false 
+			on_hover = false
 		}
 	)
 
@@ -296,8 +298,8 @@ local TopPanel = function(s)
 			{
 				widget,
 				border_width = dpi(1),
-        		border_color = '#ffffff30',
-				bg = beautiful.transparent,
+        		border_color = '#88c0d0',
+				bg = '#0f111a',
 				shape = function(cr, w, h)
 					gears.shape.rounded_rect(cr, w, h, dpi(12))
 				end,
@@ -310,7 +312,7 @@ local TopPanel = function(s)
 	end
 
 	s.tray_toggler  = require('widget.tray-toggler')
-	s.updater 		= require('widget.package-updater')()
+--	s.updater 		= require('widget.package-updater')()
 	s.screen_rec 	= require('widget.screen-recorder')()
 	s.music       	= require('widget.music')()
 	s.bluetooth   	= require('widget.bluetooth')()
@@ -338,7 +340,7 @@ local TopPanel = function(s)
 					build_widget(task_list(s)),
 				},
 				s.add_button
-			}, 
+			},
 			nil,
 			{
 				layout = wibox.layout.fixed.horizontal,
@@ -349,7 +351,7 @@ local TopPanel = function(s)
 					widget = wibox.container.margin
 				},
 				build_widget(s.tray_toggler),
-				build_widget(s.updater),
+--				build_widget(s.updater),
 				build_widget(s.screen_rec),
 				build_widget(s.bluetooth),
 				build_widget(s.wifi),

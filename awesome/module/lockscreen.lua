@@ -21,7 +21,7 @@ local background_mode = 'blur' 							-- Available background mode: `blur`, `roo
 local change_background_on_time = true					-- Dynamic background will only work with `blur` mode
 
 local wall_dir = gears.filesystem.get_configuration_dir() .. 'theme/wallpapers/'
-local default_wall_name = 'morning-wallpaper.jpg'
+local default_wall_name = 'sea.jpg'
 
 -- Useful variables (DO NOT TOUCH)
 
@@ -773,10 +773,10 @@ if background_mode == 'blur'  then
 	-- Wallpapers filename
 	-- Note:
 	-- Default image format is jpg
-	ls_bg_morning = 'morning-wallpaper.jpg'
-	ls_bg_noon = 'noon-wallpaper.jpg'
-	ls_bg_night = 'night-wallpaper.jpg'
-	ls_bg_midnight = 'midnight-wallpaper.jpg'
+	ls_bg_morning = 'sea.jpg'
+	ls_bg_noon = 'sea.jpg'
+	ls_bg_night = 'sea.jpg'
+	ls_bg_midnight = 'sea.jpg'
 
 	-- Change the wallpaper on scheduled time
 	morning_schedule = '06:22:00'

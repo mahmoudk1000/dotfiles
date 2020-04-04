@@ -14,7 +14,7 @@ local tags = {
 	{
 		icon = icons.web_browser,
 		type = 'chrome',
-		defaultApp = 'firefox',
+		defaultApp = 'google-chrome-stable',
 		screen = 1
 	},
 	{
@@ -26,7 +26,7 @@ local tags = {
 	{
 		icon = icons.file_manager,
 		type = 'files',
-		defaultApp = 'nemo',
+		defaultApp = 'thunar',
 		screen = 1
 	},
 	{
