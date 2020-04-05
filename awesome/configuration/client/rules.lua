@@ -35,11 +35,11 @@ ruled.client.connect_signal("request::rules", function()
 	-- Dialogs
 	ruled.client.append_rule {
 		id         = "dialog",
-		rule_any   = { 
+		rule_any   = {
 			type = { "dialog" },
 			class = { "Wicd-client.py", "calendar.google.com" },
 		},
-		properties = { 
+		properties = {
 			titlebars_enabled = true,
 			floating = true,
 			draw_backdrop = true,
@@ -54,10 +54,10 @@ ruled.client.connect_signal("request::rules", function()
 	-- Modals
 	ruled.client.append_rule {
 		id         = "dialog",
-		rule_any   = { 
+		rule_any   = {
 			type = { "modal" },
 		},
-		properties = { 
+		properties = {
 			titlebars_enabled = true,
 			floating = true,
 			draw_backdrop = true,
@@ -72,10 +72,10 @@ ruled.client.connect_signal("request::rules", function()
 	-- Utilities
 	ruled.client.append_rule {
 		id         = "utility",
-		rule_any   = { 
+		rule_any   = {
 			type = { "utility", "splash" }
 		},
-		properties = { 
+		properties = {
 			titlebars_enabled = false,
 			floating = true,
 			hide_titlebars = true,
@@ -88,10 +88,10 @@ ruled.client.connect_signal("request::rules", function()
 	-- Splash
 	ruled.client.append_rule {
 		id         = "splash",
-		rule_any   = { 
+		rule_any   = {
 			type = { "splash" }
 		},
-		properties = { 
+		properties = {
 			titlebars_enabled = false,
 			floating = true,
 			hide_titlebars = true,
@@ -107,8 +107,8 @@ ruled.client.connect_signal("request::rules", function()
 	-- terminal emulators
 	ruled.client.append_rule {
 		id         = "terminals",
-		rule_any   = { 
-			class = { 
+		rule_any   = {
+			class = {
 				"URxvt",
 				"XTerm",
 				"UXTerm",
@@ -130,7 +130,7 @@ ruled.client.connect_signal("request::rules", function()
 	-- Browsers
 	ruled.client.append_rule {
 		id         = "web_browsers",
-		rule_any   = { 
+		rule_any   = {
 			class = {
 				"firefox",
 				"Tor Browser"
@@ -141,7 +141,7 @@ ruled.client.connect_signal("request::rules", function()
 	-- text editors
 	ruled.client.append_rule {
 		id         = "text_editors",
-		rule_any   = {  
+		rule_any   = {
 			class = {
 				"Geany",
 				"Atom",
@@ -158,7 +158,7 @@ ruled.client.connect_signal("request::rules", function()
 	-- File managers
 	ruled.client.append_rule {
 		id         = "file_managers",
-		rule_any   = {  
+		rule_any   = {
 			class = {
 				"dolphin",
 				"ark",
@@ -166,7 +166,7 @@ ruled.client.connect_signal("request::rules", function()
 				"File-roller"
 			}
 		},
-		properties = { 
+		properties = {
 			switchtotag = true
 		}
 	}
@@ -174,13 +174,13 @@ ruled.client.connect_signal("request::rules", function()
 	-- Multimedia
 	ruled.client.append_rule {
 		id         = "multimedia",
-		rule_any   = {  
+		rule_any   = {
 			class = {
 				"vlc",
 				"Spotify"
 			}
 		},
-		properties = { 
+		properties = {
 			draw_backdrop = false
 		}
 	}
@@ -188,7 +188,7 @@ ruled.client.connect_signal("request::rules", function()
 	-- Gaming
 	ruled.client.append_rule {
 		id         = "gaming",
-		rule_any   = {  
+		rule_any   = {
 			class = {
 				"Wine",
 				"dolphin-emu",
@@ -198,7 +198,7 @@ ruled.client.connect_signal("request::rules", function()
 			},
 		name = { "Steam" }
 		},
-		properties = { 
+		properties = {
 			skip_decoration = true,
 			draw_backdrop = false,
 			switchtotag = true,
@@ -210,7 +210,7 @@ ruled.client.connect_signal("request::rules", function()
 	-- Graphics Editing
 	ruled.client.append_rule {
 		id         = "graphics_editors",
-		rule_any   = {  
+		rule_any   = {
 			class = {
 				"Gimp-2.10",
 				"Inkscape",
@@ -222,7 +222,7 @@ ruled.client.connect_signal("request::rules", function()
 	-- Sandboxes
 	ruled.client.append_rule {
 		id         = "sandbox",
-		rule_any   = {  
+		rule_any   = {
 			class = {
 				"VirtualBox Manage",
 				"VirtualBox Machine"
@@ -233,7 +233,7 @@ ruled.client.connect_signal("request::rules", function()
 	-- IDEs and Tools
 	ruled.client.append_rule {
 		id         = "ide",
-		rule_any   = {  
+		rule_any   = {
 			class = {
 				"Oomox",
 				"Unity",
@@ -241,7 +241,7 @@ ruled.client.connect_signal("request::rules", function()
 				"jetbrains-studio"
 			}
 		},
-		properties = { 
+		properties = {
 			skip_decoration = true
 		}
 	}
@@ -256,7 +256,7 @@ ruled.client.connect_signal("request::rules", function()
 				"Pulseeffects"
 			},
 		},
-		properties = { 
+		properties = {
 			skip_decoration = true,
 			hide_titlebars = true,
 			floating = true,
@@ -275,7 +275,7 @@ ruled.client.connect_signal("request::rules", function()
 				"nm-connection-editor"
 			},
 		},
-			properties = { 
+			properties = {
 			skip_decoration = true,
 			round_corners = true,
 			ontop = true,
@@ -288,7 +288,7 @@ ruled.client.connect_signal("request::rules", function()
 			placement = awful.placement.centered
 		}
 	}
-	
+
 	-- Fullsreen
 	ruled.client.append_rule {
 		id       = "fullscreen",
@@ -297,7 +297,7 @@ ruled.client.connect_signal("request::rules", function()
 				"SuperTuxKart"
 			},
 		},
-		properties = { 
+		properties = {
 			skip_decoration = true,
 			round_corners = false,
 			ontop = true,
@@ -319,7 +319,7 @@ end)
 -- until after it starts up, so we need to catch that signal.
 
 -- If the application is fullscreen in its settings, make sure to set `c.fullscreen = false` first
--- before moving to the desired tag or else the tag where the program spawn will cause panels to hide. 
+-- before moving to the desired tag or else the tag where the program spawn will cause panels to hide.
 -- After moving the program to specified tag you can set `c.fullscreen = true` now
 -- See what I did in `SuperTuxKart`
 
@@ -335,20 +335,10 @@ client.connect_signal("property::class", function(c)
 			spotify_count = spotify_count + 1
 		end
 
-		-- If Spotify is already open, don't open a new instance
-		if spotify_count > 1 then
-			c:kill()
-
 			-- Switch to previous instance
 			for c in awful.client.iterate(spotify) do
 				c:jump_to(false)
 			end
-		else
-
-			-- Move the Spotify instance to "5" tag on this screen
-			local t = awful.tag.find_by_name(awful.screen.focused(), "5")
-			c:move_to_tag(t)
-		end
 	elseif c.class == "SuperTuxKart" then
 		-- Disable fullscreen first
 		c.fullscreen = false
@@ -377,7 +367,7 @@ client.connect_signal("property::class", function(c)
 			local t = awful.tag.find_by_name(awful.screen.focused(), "6")
 			c:move_to_tag(t)
 			t:view_only()
-			
+
 			-- Enable fullscreeen again
 			c.fullscreen = true
 		end
