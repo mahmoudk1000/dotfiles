@@ -1,0 +1,174 @@
+set $mod Mod4
+
+font scientifica 15
+
+new_window pixel 1
+new_float normal
+
+focus_follows_mouse yes
+
+hide_edge_borders both
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+bindmouse Mod+right-click drag
+
+# start a terminal
+bindsym $mod+Return exec alacritty
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec --no-startup-id rofi -show drun
+
+#start wifi menu
+bindsym $mod+i exec /home/mahmoud/bin/rofi-wifi-menu.sh
+
+#start bluetooth menu
+bindsym $mod+b exec /home/mahmoud/bin/rofi-bluetooth.sh
+
+#start power menu
+bindsym $mod+p exec --no-startup-id rofi_run -l
+
+# Screenshot
+bindsym Print exec --no-startup-id "flameshot full -p /home/mahmoud/Pictures/Screenshots"
+
+# partial Screenshot
+bindsym Shift + Print exec --no-startup-id "flameshot gui -p /home/mahmoud/Pictures/Screenshots"
+
+#lock screen
+bindsym $mod+shift+l  exec --no-startup-id betterlockscreen -l dim
+
+# backlight
+bindsym XF86MonBrightnessUp   exec --no-startup-id light -A 10
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+shift+s layout stacking
+bindsym $mod+shift+w layout tabbed
+bindsym $mod+shift+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Autostart applications
+exec --no-startup-id nitrogen --restore; sleep 1
+exec --no-startup-id picom -b
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id mpd
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always "setxkbmap -model pc104 -layout us,ara -variant ,, -option grp:alt_shift_toggle"
+exec_always "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+# audio
+bindsym XF86AudioPlay        exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext        exec --no-startup-id playerctl next
+bindsym XF86AudioPrev        exec --no-startup-id playerctl previous
+bindsym XF86AudioStop        exec --no-startup-id playerctl stop
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+
+#class                  border   backgr.  text
+client.focused          #C9B5BD #C9B5BD #825969
+client.focused_inactive #191919 #191919 #999999
+client.unfocused        #191919 #191919 #999999
+client.urgent           #cd989a #cd989a #2e3436
+client.background       #121212
+
+
+for_window [class="^.*"] border pixel 0
+#for_window [class="^.*"] floating enable
+## Gaps
+#smart_gaps on
+gaps inner 10
+gaps outer 10
+
+#for_window [class=".*"] title_format "<span color='#e4e4e4' font='scientifica 7'></span>"
+#for_window [class=".*"] title_format "<span color='#e4e4e4' font='cherry 7'> > %title</span>"
+#for_window [class=".*"] floating enable
+
+for_window [class=".*"] title_format "%title  ⋯  %class"
+title_align center
+
+# Set inner/outer gaps
+gaps inner 20
+gaps outer 0
+gaps top 25
+gaps bottom 0
