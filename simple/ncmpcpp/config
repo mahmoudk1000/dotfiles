@@ -1,6 +1,5 @@
 mpd_host = "localhost"
 mpd_port = "6600"
-mpd_music_dir = "/mnt/Windows/Documents and Settings/julian/Music"
 mpd_connection_timeout = "5"
 mpd_crossfade_time = "0"
 
@@ -34,8 +33,8 @@ playlist_separate_albums = "no"
 
 colors_enabled = "yes"
 empty_tag_color = "blue"
-header_window_color = "black"
-volume_color = "black"
+header_window_color = "yellow"
+volume_color = "blue"
 display_volume_level="yes"
 state_line_color = "cyan"
 state_flags_color = "red"
