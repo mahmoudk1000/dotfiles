@@ -14,7 +14,7 @@ floating_modifier $mod
 bindmouse Mod+right-click drag
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -23,10 +23,10 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show drun
 
 #start wifi menu
-bindsym $mod+i exec /home/mahmoud/bin/rofi-wifi-menu.sh
+bindsym $mod+i exec --no-startup-id /home/mahmoud/bin/rofi-wifi-menu.sh
 
 #start bluetooth menu
-bindsym $mod+b exec /home/mahmoud/bin/rofi-bluetooth.sh
+bindsym $mod+b exec --no-startup-id /home/mahmoud/bin/rofi-bluetooth.sh
 
 #start power menu
 bindsym $mod+p exec --no-startup-id rofi_run -l
@@ -128,13 +128,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Autostart applications
-exec --no-startup-id nitrogen --restore; sleep 1
-exec --no-startup-id picom -b
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id mpd
+#exec --no-startup-id nitrogen --restore; sleep 1
+#exec --no-startup-id picom -b
+#exec --no-startup-id xfce4-power-manager
+#exec --no-startup-id mpd
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always "setxkbmap -model pc104 -layout us,ara -variant ,, -option grp:alt_shift_toggle"
-exec_always "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+#exec_always "setxkbmap -model pc104 -layout us,ara -variant ,, -option grp:alt_shift_toggle"
+#exec_always "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 # audio
 bindsym XF86AudioPlay        exec --no-startup-id playerctl play-pause
