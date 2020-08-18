@@ -25,6 +25,13 @@ xfce4-power-manager &
 mpd &
 setxkbmap -model pc104 -layout us,ara -variant ,, -option grp:alt_shift_toggle &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+unclutter &
+nm-applet &
+# sxhkd &
+
+# natural scrolling
+xinput --set-prop 15 "libinput Natural Scrolling Enabled" 1 &
 
 # launch the session, commands below this line will be ignored
-exec i3
+exec dbus-launch i3
+# exec yaxwm
