@@ -1,29 +1,29 @@
-#!/bin/bash
+#!/bin/sh
 
-if pgrep -x "spotify" || pgrep -x "cmus" > /dev/null
-then
-    PID=$(pgrep -x "spotify" || pgrep -x "cmus")
-    PLAYER=$(pmap $PID | head -1 | awk '{print $2}')
-    STATUS=$(dbus-send --print-reply --dest=org.mpris.MediaPlayer2.$PLAYER /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' string:'PlaybackStatus'|egrep -A 1 "string"|cut -b 26-|cut -d '"' -f 1)
+STATUS=$(playerctl status 2> /dev/null)
 
-    ARTIST=$(dbus-send --print-reply --dest=org.mpris.MediaPlayer2.$PLAYER /org/mpris/MediaPlayer2 \
-        org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' \
-        string:'Metadata' |\
-        awk -F 'string "' '/string|array/ {printf "%s",$2; next}{print ""}' |\
-        awk -F '"' '/artist/ {print $2}')
-
-    SONG=$(dbus-send --print-reply --dest=org.mpris.MediaPlayer2.$PLAYER /org/mpris/MediaPlayer2 \
-        org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' \
-        string:'Metadata' |\
-        awk -F 'string "' '/string|array/ {printf "%s",$2; next}{print ""}' |\
-        awk -F '"' '/title/ {print $2}' | sed -e 's/([^()]*)//g' | cut -c 1-20 )
-
-    if [[ $STATUS = "Playing" ]]; then
-    echo " $SONG - $ARTIST"
-    else
-    echo " $SONG - $ARTIST"
-    fi
-    # mute the audio if an ad is playing(too broke for premium now)
-    else
-        echo " Spotify is not running"
-    fi
+if [ "$STATUS" != "Playing" ] && [ "$STATUS" != "Paused" ]; then
+    echo " No player is running"
+else
+    P_ICON=""
+    S_ICON=""
+    METADATA="$(playerctl metadata artist) - $(playerctl metadata title)"
+    TRIM=$(echo $METADATA | sed -e 's/([^()]*)//g' | cut -c 1-50) 
+    ARTIST=$(playerctl metadata artist)
+    FULL_META=$(playerctl metadata)
+    case $STATUS in
+        "Playing")
+            # if spotify is playing on another device artist and song will be empty
+            if [[ "$ARTIST" == "" ]] && [[ "$FULL_META" =~ "spotify" ]]; then
+                echo $P_ICON "Playing on Another Device"
+            else
+                echo $P_ICON $TRIM
+            fi;;
+        "Paused")
+            if [[ "$ARTIST" == "" ]] && [[ "$FULL_META" =~ "spotify" ]]; then
+                echo $S_ICON "Paused on Another Device"
+            else
+                echo $S_ICON $TRIM
+            fi;;
+    esac
+fi

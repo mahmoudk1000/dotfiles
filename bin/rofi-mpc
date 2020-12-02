@@ -1,0 +1,31 @@
+#!/bin/sh
+
+ANS=$(echo " play| pause| stop| next| previous| repeat " | \
+      rofi -sep "|" -dmenu -i -p 'Music  ' "" )
+        case "$ANS" in
+            *play)
+                mpc play
+                ;;
+            *pause)
+                mpc pause
+                ;;
+            *stop)
+                mpc stop
+                sleep 0.5
+                #rofi-mpc
+                ;;
+            *next)
+                mpc next
+                sleep 0.5
+                #rofi-mpc
+                ;;
+            *previous)
+                mpc prev
+                sleep 0.5
+                #rofi-mpc
+                ;;
+            *repeat)
+                mpc repeat
+        esac
+
+exit 0

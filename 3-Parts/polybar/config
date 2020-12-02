@@ -1,0 +1,366 @@
+;; ======================================= POLYBAR CONFIG ====================================
+
+;; ==================== COLORS ======================
+[colors]
+background = #050505
+foreground = #EEEEEE
+
+black       = ${xrdb:Polybar.color0}
+red         = ${xrdb:Polybar.color1}
+green       = ${xrdb:Polybar.color2}
+yellow      = ${xrdb:Polybar.color3}
+blue        = ${xrdb:Polybar.color4}
+magenta     = ${xrdb:Polybar.color5}
+cyan        = ${xrdb:Polybar.color6}
+white       = ${xrdb:Polybar.color7}
+accent      = #0080F8
+
+;; ===================== BARS ========================
+
+[bar/right]
+width = 26.5%
+height = 35px
+offset-x = 1401
+offset-y = 10
+radius = 10
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+module-margin-left = 0
+module-margin-right = 0
+
+padding-left = 0
+padding-right = 0
+
+font-0 = Scientifica:style=Bold:size=11;3
+font-1 = Scientifica:style=Bold:size=13;3
+font-2 = TerminessTTF Nerd Font:size=15:antialias=true;3
+font-3 = Material Icons:size=15:antialias=true;3
+font-4 = DejaVu Sans Mono
+
+modules-center = pulseaudio xbacklight battery wifi lang
+
+wm-restack = bspwm
+override-redirect = true
+
+[bar/middle]
+width = 16%
+height = 35px
+offset-x = 42.5%
+offset-y = 10
+radius = 10
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = Scientifica:style=Bold:size=11;3
+font-1 = Scientifica:style=Bold:size=13;3
+font-2 = TerminessTTF Nerd Font:size=15:antialias=true;3
+font-3 = Material Icons:size=15:antialias=true;3
+font-4 = DejaVu Sans Mono
+
+modules-center = spotify2
+
+wm-restack = bspwm
+override-redirect = true
+
+[bar/left]
+width = 27.1%
+height = 35px
+offset-x = 11
+offset-y = 10
+radius = 10
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+module-margin-left = 0
+module-margin-right = 0
+
+padding-left = 0
+padding-right = 0
+
+font-0 = Scientifica:style=Bold:size=11;3
+font-1 = Scientifica:style=Bold:size=13;3
+font-2 = TerminessTTF Nerd Font:size=8:antialias=true;3
+font-3 = Material Icons:size=15:antialias=true;3
+font-4 = DejaVu Sans Mono
+
+modules-left = time bspwm
+
+wm-restack = bspwm
+override-redirect = true
+
+;; ====================== MODULES ==========================
+
+[module/bspwm]
+type = internal/bspwm
+
+pin-workspaces = true
+enable-click = true
+enable-scroll = true
+
+format = <label-state>
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+label-monitor = %name%
+label-focused-background = ${colors.accent}
+label-occupied-background = ${colors.background}
+label-urgent-background = ${colors.red}
+label-empty-background = ${colors.background}
+
+label-focused-padding = 2
+label-urgent-padding = 2
+label-occupied-padding = 2
+label-empty-padding = 2
+
+label-focused = 
+label-occupied = 
+label-urgent = 
+label-empty = 
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+label-mode-padding = 2
+label-mode-foreground = ${colors.accent}
+label-mode-background = ${colors.background}
+
+label-focused = %index%
+label-focused-background = ${colors.accent}
+label-focused-foreground = ${colors.background}
+label-focused-padding = 2
+
+label-unfocused = %index%
+label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${colors.accent}
+label-unfocused-padding = 2
+
+label-visible = %index%
+label-visible-background = ${colors.background}
+label-visible-foreground = ${colors.foreground}
+label-visible-padding = 2
+
+label-urgent = %index%
+label-urgent-background = ${colors.red}
+label-urgent-padding = 2
+
+[module/wifi]
+type = internal/network
+interface = wlp3s0
+interval = 3.0
+tail = true
+click-left = cd ~/bin && ./rofi-wifi-menu.sh
+
+format-connected = <ramp-signal><label-connected>
+format-connected-foreground = ${colors.foreground}
+format-connected-background = ${colors.background}
+format-connected-padding = 2
+label-connected = %essid% | %downspeed:1:10%
+;;label-connected = %essid% | %downspeed:1:10% & %upspeed:1:10%
+label-connected-background = ${colors.background}
+label-disconnected-padding = 2
+format-disconnected-prefix-padding = 2
+format-disconnected-prefix  = "睊"
+format-disconnected-prefix-foreground = ${colors.green}
+format-disconnected-prefix-background = ${colors.background}
+format-disconnected-foreground = ${colors.foreground}
+format-disconnected-background = ${colors.background}
+
+format-disconnected = "No-Wifi  "
+
+ramp-signal-0 = "直  "
+ramp-signal-foreground = ${colors.green}
+ramp-signal-background = ${colors.background}
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT0
+adapter = ADP0
+
+poll-interval = 2
+time-format = %H:%M
+
+format-charging-padding-right = 2
+format-full-padding-right = 2
+label-full-padding-right = 2
+label-discharging-padding-right = 2
+
+format-charging = "<animation-charging><label-charging>"
+format-discharging = "<ramp-capacity><label-discharging>"
+format-full-prefix = "  וֹ "
+format-full-prefix-foreground = ${colors.magenta}
+format-full-prefix-background = ${colors.background}
+label-full = "charged"
+label-full-background = ${colors.background}
+label-full-foreground = ${colors.foreground}
+label-charging-padding-right = 2
+label-charging-background = ${colors.background}
+label-charging-foreground = ${colors.foreground}
+label-discharging-foreground = ${colors.foreground}
+label-discharging-background = ${colors.background}
+
+ramp-capacity-0 = "  "
+ramp-capacity-1 = "  "
+ramp-capacity-2 = "  "
+ramp-capacity-3 = "  "
+ramp-capacity-4 = "  "
+ramp-capacity-5 = "  "
+ramp-capacity-padding-left = 2
+ramp-capacity-background = ${colors.background}
+ramp-capacity-foreground = ${colors.magenta}
+
+animation-charging-padding-left = 2
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-background = ${colors.background}
+animation-charging-foreground = ${colors.magenta}
+animation-charging-framerate = 750
+
+[module/xbacklight]
+type = internal/xbacklight
+format = <label>
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-padding = 2
+format-fontseize = 13
+scroll = true
+exec = ~/.bin/light.sh
+scroll-up = exec light -A 10
+scroll-down = exec light -U 10
+format-prefix-foreground = ${colors.red}
+format-prefix = "  "
+
+[module/lang]
+type = custom/script
+exec = ~/.bin/lang.sh
+format-padding = 2
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix-padding = 0
+format-prefix = " "
+interval = 0.1
+format-prefix-foreground = ${colors.blue}
+format-prefix-background = ${colors.background}
+
+[module/spotify]
+type = custom/script
+format-prefix-padding-left = 2
+format-prefix = "  "
+click-left = playerctl play-pause
+format-prefix-background = #a7c080
+format-prefix-foreground = ${colors.background}
+interval = 1
+format = "<label>  "
+format-background = #a7c080
+format-foreground = ${colors.background}
+exec = python /home/mahmoud/.bin/spotify_status.py -f '{artist} - {song}'
+
+[module/spotify2]
+type = custom/script
+click-left = playerctl play-pause
+exec = ~/.bin/song.sh 2>/dev/null || echo "No player found"
+;exec = ~/.bin/song.sh 2>/dev/null
+format = "<label>  "
+format-prefix = "%{T4}%{F#79e6f3}    %{F-}%{T-}"
+interval = 1
+
+tail = true
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = "<bar-volume><label-volume>"
+label-volume =  " %percentage%%  "
+label-volume-background = ${colors.background}
+label-volume-foreground = ${colors.foreground}
+label-muted-foreground = ${colors.foreground}
+label-muted-background = ${colors.background}
+
+ramp-volume-0 = "  "
+ramp-volume-1 = "  "
+ramp-volume-2 = "  "
+ramp-volume-foreground = ${colors.yellow}
+ramp-volume-background = ${colors.background}
+
+bar-volume-fill-padding-left = 2
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.green}
+bar-volume-foreground-1 = ${colors.green}
+bar-volume-foreground-2 = ${colors.green}
+bar-volume-foreground-3 = ${colors.green}
+bar-volume-foreground-4 = ${colors.magenta}
+bar-volume-foreground-5 = ${colors.magenta}
+bar-volume-foreground-6 = ${colors.red}
+bar-volume-gradient = false
+bar-volume-indicator =
+bar-volume-indicator-background = ${colors.background}
+bar-volume-background = ${colors.background}
+bar-volume-indicator-font =
+bar-volume-fill = |
+bar-volume-fill-background = ${colors.background}
+bar-volume-fill-font =
+bar-volume-empty = =
+bar-volume-empty-font =
+bar-volume-empty-foreground = ${colors.foreground}
+bar-volume-empty-background = ${colors.background}
+
+label-muted = "  muted  "
+
+[module/time]
+type = internal/date
+interval = 1
+date = %a, %d %B
+time = %I:%M %
+label-font = 2
+label = "  %date% | %time% "
+label-foreground = ${colors.background}
+label-background = ${colors.foreground}
+
+[module/mpdee]
+type = internal/mpd
+format-online =  <label-song>
+format-online-background = ${colors.background}
+format-online-foreground = ${colors.yellow}
+format-online-padding = 2
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+[module/powermenu]
+type = custom/script
+exec = echo "襤"
+label-font
+click-left = cd ~/bin && ./menu_powermenu.sh
+format-background = #89beba
+format-foreground = ${colors.background}
+format-padding = 2
+format-fontseize = 13
+
+[module/polywins]
+type = custom/script
+exec = ~/.config/polybar/scripts/polywins.sh 2>/dev/null
+format = <label>
+label = %output%
+label-padding = 1
+interval = .1
+format-foreground = ${colors.foreground}
+format-background = #72bbff
+
+vim:ft=dosini
+
+;; ======================== EOF ===========================

@@ -1,0 +1,113 @@
+# launch terminal
+super + Return
+   alacritty
+
+# program launcher
+super + d
+    rofi -show drun
+
+# open wifi menu
+super + i
+    /home/mahmoud/.bin/rofi-wifi-menu.sh
+
+# open bluetooth menu
+super + b
+    /home/mahmoud/.bin/rofi-bluetooth
+
+# open powermenu
+super + p
+    /home/mahmoud/.bin/rofi-powermenu
+
+# open mpd menu
+super + m
+    /home/mahmoud/.bin/rofi-mpc
+
+# launch software
+super + {w,f,s,t}
+    {firefox,pcmanfm,spotify,kotatogram-desktop}
+
+# close and kill
+super + {_,shift + }q
+	bspc node -{c,k}
+
+# turn on redshift
+super + shift + o
+    redshift -t 6500:4900 -l 3.2476811:101.74012689999999 &
+
+# turn off redshift
+super + shift + k
+    pkill redshift
+
+# set the window state
+super + shift + {w,e,f}
+    bspc node --state {tiled,floating,fullscreen}
+
+# focus the node in the given direction
+super + {_,shift + }{Left,Down,Up,Right}
+    bspc node -{f,s} {west,south,north,east}
+
+# focus the last node/desktop
+super + {grave,Tab}
+    bspc {node,desktop} -f last
+
+# move beetwen desktop
+super + shift + {w,s}
+    bspc desktop -f  '^{1-9,10}'
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+    bspc {desktop -f,node -d} '^{1-9,10}'
+
+# expand a window by moving one of its side outward
+ctrl + super + {Left,Down,Up,Right}
+    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+ctrl + alt + {Left,Down,Up,Right}
+    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+    bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Toggle beetwen floating & tiled
+super + space
+    bspc node -t "~"{floating,tiled}
+
+# Send the window to another edge of the screen
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+# full screenshot, selection area, full in 5 seconds
+Print + {_,shift,alt}
+    flameshot {full -p,gui -p,full -d 5000 -p} /home/mahmoud/Screenshots
+
+# increase/decrease volume by 5%
+XF86Audio{Raise,Lower}Volume
+   pactl set-sink-volume 0 {+5%,-5%}
+
+# toggle volume mute
+XF86AudioMute
+    set-sink-mute 0 toggle
+
+# brightness keys
+XF86MonBrightnessUp
+	xbacklight -inc 10
+XF86MonBrightnessDown
+	xbacklight -dec 10
+
+# next, previous, play-pause toggle
+XF86Audio{Next,Prev,Play}
+    playerctl {next,previous,play-pause}
+
+# hybrid sleep
+XF86Sleep
+    systemctl hybrid-sleep
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# reload configurations
+super + shift + r
+    pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'

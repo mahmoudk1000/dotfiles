@@ -1,0 +1,37 @@
+set selection-clipboard clipboard
+set guioptions none
+set highlight-active-color "#C3AFF7"
+set font "JetBrainsMono NF 10"
+
+#colorscheme
+set default-bg                  "#050505"
+set default-fg                  "#EEEEEE"
+
+set statusbar-fg                "#ff4151"
+set statusbar-bg                "#00010a"
+
+set inputbar-bg                 "#050505"
+set inputbar-fg                 "#b0c7d4"
+
+set notification-bg             "#050505"
+set notification-fg             "#b0c7d4"
+
+set notification-error-bg       "#050505"
+set notification-error-fg       "#AB2E56"
+
+set notification-warning-bg     "#050505"
+set notification-warning-fg     "#AB2E56"
+
+set highlight-color             "#AB8C70"
+set highlight-active-color      "#ff4151"
+
+set completion-bg               "#050505"
+set completion-fg               "#ff4151"
+
+set completion-highlight-fg     "#050505"
+set completion-highlight-bg     "#ff4151"
+
+set recolor-lightcolor          "#050505"
+set recolor-darkcolor           "#f1f1f1"
+
+set recolor                     "true"
