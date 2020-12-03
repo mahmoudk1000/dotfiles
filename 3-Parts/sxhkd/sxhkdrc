@@ -50,9 +50,9 @@ super + {_,shift + }{Left,Down,Up,Right}
 super + {grave,Tab}
     bspc {node,desktop} -f last
 
-# move beetwen desktop
-super + shift + {w,s}
-    bspc desktop -f  '^{1-9,10}'
+# move forward/backword desktops
+super + shift + {a,s}
+    bspc desktop -f {prev,next}
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
