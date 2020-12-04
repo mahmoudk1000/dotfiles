@@ -39,8 +39,12 @@ super + shift + k
     pkill redshift
 
 # set the window state
-super + shift + {w,e,f}
-    bspc node --state {tiled,floating,fullscreen}
+super + shift + {w,e}
+    bspc node --state {tiled,floating}
+
+# toggle fullscreen/non-fullscreen switch
+super + shift + f
+    bspc node -t "~"{fullscreen,tiled}
 
 # focus the node in the given direction
 super + {_,shift + }{Left,Down,Up,Right}
