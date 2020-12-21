@@ -1,22 +1,28 @@
-# Dotfiles
+```
+   █▀▀▀ ▀█▀ █   █▀▀ █▀▀
+   █▀▀   █  █   █▀▀ ▀▀█
+▀  ▀    ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀
+```
 
-## 3-Parts (bspwm)
 
-![alt text](https://raw.githubusercontent.com/mahmoudk1000/Dotfiles/master/Screen/3-parts.png)
+A bunch of files that are essential to my gnu/linux box configuration.
 
-## Colored time (i3wm)
+ - OS: [Artix OS](https://artixlinux.org)
+ - WM : [bspwm](https://wiki.archlinux.org/index.php/Bspwm)
+ - Bar : [Polybar](https://github.com/polybar/polybar)
+ - Menu : [rofi](https://wiki.archlinux.org/index.php/Rofi)
+ - Editor : [nvim](https://neovim.org/)
+ - Font : [SF Pro](https://developer.apple.com/fonts/)
+ - Terminal : [Alacritty](https://aur.archlinux.org/packages/alacritty-ligatures/)
+ - Shell : [zsh](https://wiki.archlinux.org/index.php/Zsh)
 
-![alt text](https://raw.githubusercontent.com/mahmoudk1000/Dotfiles/master/Screen/colored-time.png)
 
-## Simple (i3wm)
+...
+## Screenshots
 
-![alt text](https://raw.githubusercontent.com/mahmoudk1000/Dotfiles/master/Screen/simple.png)
+![alt text](https://raw.githubusercontent.com/mahmoudk1000/Dotfiles/master/Screen/1.png)
 
-## 80's (i3wm)
+![alt text](https://raw.githubusercontent.com/mahmoudk1000/Dotfiles/master/Screen/2.png)
 
-![alt text](https://raw.githubusercontent.com/mahmoudk1000/Dotfiles/master/Screen/80's.png)
-
-## Blue (i3wm)
-
-![alt text](https://raw.githubusercontent.com/mahmoudk1000/Dotfiles/master/Screen/i3.png)
+![alt text](https://raw.githubusercontent.com/mahmoudk1000/Dotfiles/master/Screen/3.png)
 
