@@ -1,5 +1,11 @@
 ;; ======================================= POLYBAR CONFIG ====================================
-
+;;     ____       _       _
+;;    |  _ \ ___ | |_   _| |__   __ _ _ __
+;;    |  |_) / _ \| | | | | '_ \ / _` | '__|
+;;    |  __/ (_) | | |_| | |_) | (_| | |
+;;    |_|   \___/|_|\__, |_.__/ \__,_|_|
+;;                  |___/
+;;
 ;; ==================== COLORS ======================
 [colors]
 background = #050505
@@ -68,7 +74,7 @@ font-2 = TerminessTTF Nerd Font:size=15:antialias=true;3
 font-3 = Material Icons:size=15:antialias=true;3
 font-4 = DejaVu Sans Mono
 
-modules-center = spotify2
+modules-center = spotify
 
 wm-restack = bspwm
 override-redirect = true
@@ -103,6 +109,8 @@ override-redirect = true
 
 ;; ====================== MODULES ==========================
 
+
+;; =================== BSPWM =====================
 [module/bspwm]
 type = internal/bspwm
 
@@ -129,34 +137,7 @@ label-occupied = 
 label-urgent = 
 label-empty = 
 
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-
-label-mode-padding = 2
-label-mode-foreground = ${colors.accent}
-label-mode-background = ${colors.background}
-
-label-focused = %index%
-label-focused-background = ${colors.accent}
-label-focused-foreground = ${colors.background}
-label-focused-padding = 2
-
-label-unfocused = %index%
-label-unfocused-background = ${colors.background}
-label-unfocused-foreground = ${colors.accent}
-label-unfocused-padding = 2
-
-label-visible = %index%
-label-visible-background = ${colors.background}
-label-visible-foreground = ${colors.foreground}
-label-visible-padding = 2
-
-label-urgent = %index%
-label-urgent-background = ${colors.red}
-label-urgent-padding = 2
+;; =================== WIFI =====================
 
 [module/wifi]
 type = internal/network
@@ -185,6 +166,8 @@ format-disconnected = "No-Wifi  "
 ramp-signal-0 = "直  "
 ramp-signal-foreground = ${colors.green}
 ramp-signal-background = ${colors.background}
+
+;; =================== BATTERY =====================
 
 [module/battery]
 type = internal/battery
@@ -233,6 +216,8 @@ animation-charging-background = ${colors.background}
 animation-charging-foreground = ${colors.magenta}
 animation-charging-framerate = 750
 
+;; =================== BACKLIGHT =====================
+
 [module/xbacklight]
 type = internal/xbacklight
 format = <label>
@@ -247,6 +232,8 @@ scroll-down = exec light -U 10
 format-prefix-foreground = ${colors.red}
 format-prefix = "  "
 
+;; =================== LANG =====================
+
 [module/lang]
 type = custom/script
 exec = ~/.bin/lang.sh
@@ -259,20 +246,9 @@ interval = 0.1
 format-prefix-foreground = ${colors.blue}
 format-prefix-background = ${colors.background}
 
-[module/spotify]
-type = custom/script
-format-prefix-padding-left = 2
-format-prefix = "  "
-click-left = playerctl play-pause
-format-prefix-background = #a7c080
-format-prefix-foreground = ${colors.background}
-interval = 1
-format = "<label>  "
-format-background = #a7c080
-format-foreground = ${colors.background}
-exec = python /home/mahmoud/.bin/spotify_status.py -f '{artist} - {song}'
+;; =================== SPOTIFY =====================
 
-[module/spotify2]
+[module/spotify]
 type = custom/script
 click-left = playerctl play-pause
 exec = ~/.bin/song.sh 2>/dev/null || echo "No player found"
@@ -280,8 +256,9 @@ exec = ~/.bin/song.sh 2>/dev/null || echo "No player found"
 format = "<label>  "
 format-prefix = "%{T4}%{F#79e6f3}    %{F-}%{T-}"
 interval = 1
-
 tail = true
+
+;; =================== PULSEAUDIO =====================
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -322,6 +299,8 @@ bar-volume-empty-background = ${colors.background}
 
 label-muted = "  muted  "
 
+;; =================== TIME =====================
+
 [module/time]
 type = internal/date
 interval = 1
@@ -331,36 +310,5 @@ label-font = 2
 label = "  %date% | %time% "
 label-foreground = ${colors.background}
 label-background = ${colors.foreground}
-
-[module/mpdee]
-type = internal/mpd
-format-online =  <label-song>
-format-online-background = ${colors.background}
-format-online-foreground = ${colors.yellow}
-format-online-padding = 2
-label-song-maxlen = 25
-label-song-ellipsis = true
-
-[module/powermenu]
-type = custom/script
-exec = echo "襤"
-label-font
-click-left = cd ~/bin && ./menu_powermenu.sh
-format-background = #89beba
-format-foreground = ${colors.background}
-format-padding = 2
-format-fontseize = 13
-
-[module/polywins]
-type = custom/script
-exec = ~/.config/polybar/scripts/polywins.sh 2>/dev/null
-format = <label>
-label = %output%
-label-padding = 1
-interval = .1
-format-foreground = ${colors.foreground}
-format-background = #72bbff
-
-vim:ft=dosini
 
 ;; ======================== EOF ===========================
