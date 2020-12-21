@@ -14,6 +14,3 @@ export QT_STYLE_OVERRIDE=
 # keyboard repeat rate
 xset r rate 500 30
 
-# natural scrolling
-xinput --set-prop 15 "libinput Natural Scrolling Enabled" 1
-

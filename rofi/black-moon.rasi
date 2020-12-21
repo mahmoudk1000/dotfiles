@@ -1,0 +1,48 @@
+configuration {
+  show-icons: true;
+  font: "SauceCodePro Nerd Font Medium 12";
+  drun-display-format: "{icon}  {name}";
+  display-run: " ";
+  display-drun: " ";
+  display-window: " ";
+  modi: "window,run,drun";
+}
+
+* {
+	background-color: #050505;
+	text-color: #EEEEEE;
+	spacing: 0;
+	width: 400px;
+}
+
+inputbar {
+	border: 0 0 1px 0;
+	children: [prompt, entry];
+}
+
+prompt {
+	padding: 16px;
+}
+
+textbox {
+	padding: 8px 16px;
+}
+
+entry {
+	padding: 16px;
+}
+
+listview {
+	cycle: false;
+	margin: 0 0 -1px 0;
+	scrollbar: false;
+}
+
+element {
+	padding: 16px;
+}
+
+element selected {
+	background-color: #8297f4;
+	text-color: #050505;
+}
