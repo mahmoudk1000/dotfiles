@@ -25,5 +25,6 @@ export PATH=$NPM_PACKAGES/bin:$PATH
 export NODE_PATH=$NPM_PACKAGES/lib/node_modules:$NODE_PATH
 
 export XKB_DEFAULT_LAYOUT=en-us
+export LANG=en_US.UTF-8
 
 # vim: ft=sh:
