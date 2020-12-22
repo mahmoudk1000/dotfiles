@@ -19,15 +19,15 @@ blue        = ${xrdb:Polybar.color4}
 magenta     = ${xrdb:Polybar.color5}
 cyan        = ${xrdb:Polybar.color6}
 white       = ${xrdb:Polybar.color7}
-accent      = #0080F8
+accent      = #8297f4
 
 ;; ===================== BARS ========================
 
 [bar/right]
-width = 26.5%
+width = 26.6%
 height = 35px
-offset-x = 1401
-offset-y = 10
+offset-x = 1404
+offset-y = 5
 radius = 10
 fixed-center = true
 
@@ -55,7 +55,7 @@ override-redirect = true
 width = 16%
 height = 35px
 offset-x = 42.5%
-offset-y = 10
+offset-y = 5
 radius = 10
 fixed-center = true
 
@@ -82,8 +82,8 @@ override-redirect = true
 [bar/left]
 width = 27.1%
 height = 35px
-offset-x = 11
-offset-y = 10
+offset-x = 5
+offset-y = 5
 radius = 10
 fixed-center = true
 
