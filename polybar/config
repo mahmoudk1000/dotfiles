@@ -9,7 +9,8 @@
 ;; ==================== COLORS ======================
 [colors]
 background = #050505
-foreground = #EEEEEE
+foreground = #FFFFFF
+accent     = #BB86FC
 
 black       = ${xrdb:Polybar.color0}
 red         = ${xrdb:Polybar.color1}
@@ -19,7 +20,6 @@ blue        = ${xrdb:Polybar.color4}
 magenta     = ${xrdb:Polybar.color5}
 cyan        = ${xrdb:Polybar.color6}
 white       = ${xrdb:Polybar.color7}
-accent      = #8297f4
 
 ;; ===================== BARS ========================
 
@@ -82,7 +82,7 @@ override-redirect = true
 [bar/left]
 width = 27.1%
 height = 35px
-offset-x = 5
+offset-x = 4
 offset-y = 5
 radius = 10
 fixed-center = true
@@ -251,6 +251,8 @@ format-prefix-background = ${colors.background}
 [module/spotify]
 type = custom/script
 click-left = playerctl play-pause
+scroll-up = playerctl previous
+scroll-down = playerctl next
 exec = ~/.bin/song.sh 2>/dev/null || echo "No player found"
 ;exec = ~/.bin/song.sh 2>/dev/null
 format = "<label>  "
