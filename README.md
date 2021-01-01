@@ -22,3 +22,5 @@ A bunch of files that start with . and makes linux more awesome.
 ![alt text](https://raw.githubusercontent.com/mahmoudk1000/Dotfiles/master/Screen/2.png)
 
 ![alt text](https://raw.githubusercontent.com/mahmoudk1000/Dotfiles/master/Screen/3.png)
+
+![alt text](https://raw.githubusercontent.com/mahmoudk1000/Dotfiles/master/Screen/4.png)
