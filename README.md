@@ -17,8 +17,8 @@ A bunch of files that start with . and makes linux more awesome.
 
 # Screenshots
 
-![alt text](https://raw.githubusercontent.com/mahmoudk1000/Dotfiles/nord/Screen/1.png)
+![alt text](https://github.com/Mahmoudk1000/Dotfiles/blob/master/Screen/1.png)
 
-![alt text](https://raw.githubusercontent.com/mahmoudk1000/Dotfiles/nord/Screen/2.png)
+![alt text](https://github.com/Mahmoudk1000/Dotfiles/blob/master/Screen/2.png)
 
-![alt text](https://raw.githubusercontent.com/mahmoudk1000/Dotfiles/nord/Screen/3.png)
+![alt text](https://github.com/Mahmoudk1000/Dotfiles/blob/master/Screen/3.png)
