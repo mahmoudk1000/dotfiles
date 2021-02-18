@@ -1,0 +1,57 @@
+configuration {
+  font:                  "SF Pro Rounded 13";
+  line-padding:          10;
+  separator-style:       none;
+  hide-scrollbar:        true;
+}
+
+* {
+  bg:  #2e3440ff;
+  se:  #4c566aff;
+  fg:  #eceff4ff;
+  ac:  #5e81acff;
+}
+
+* {
+	background-color: @bg;
+	text-color: @fg;
+	spacing: 0;
+	width: 370px;
+}
+
+inputbar {
+    children: [ textbox-prompt-colon, prompt ];
+    position: center;
+    border-radius: 7px;
+}
+
+textbox-prompt-colon {
+    padding: 1.7% 0% 1.7% 1.5%;
+	str: "􀐫   Syetem Uptime  -";
+    background-color: @ac;
+    text-color: @bg;
+}
+
+prompt {
+    padding: 1.7% 1.3% 1.7% 0%;
+    enabled: true;
+	background-color: @ac;
+	text-color: @bg;
+}
+
+listview {
+	cycle: true;
+	margin: 0 0 0 0;
+	scrollbar: false;
+}
+
+element selected {
+    margin: 10px;
+	background-color: @se;
+	text-color: @fg;
+    border-radius:  8px;
+}
+
+element{
+    padding: 12px;
+}

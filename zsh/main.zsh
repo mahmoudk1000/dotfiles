@@ -10,10 +10,7 @@ setopt autocd
 autoload -U promptinit
 promptinit
 
-zmodload zsh/terminfo
-
-
-if [[ $TERM == xterm-termite ]]; then
+if [[ $TERM == alacritty ]]; then
 	. /etc/profile.d/vte.sh
 	__vte_osc7
 fi

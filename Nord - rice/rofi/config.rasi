@@ -1,0 +1,76 @@
+configuration {
+  font:                  "SF Pro Rounded 13";
+  icon-theme:            "Flatery";
+  show-icons:            false;
+  drun-display-format:   "{icon}  {name}";
+  display-run:           "⎇ ";
+  display-drun:          "􀊫 ";
+  display-window:        "􀇴 ";
+  modi:                  "window,run,drun";
+  lines:                 10;
+  line-padding:          0;
+  bw:                    0;
+  padding:               0;
+  separator-style:       none;
+  hide-scrollbar:        true;
+  line-margin:           0;
+}
+
+* {
+  bg:  #2e3440ff;
+  se:  #4c566aff;
+  fg:  #eceff4ff;
+  ac:  #5e81acff;
+}
+
+* {
+	background-color: @bg;
+	text-color: @fg;
+	spacing: 0;
+	width: 800px;
+}
+
+inputbar {
+	border: 0 0 1px 0;
+	children: [prompt, entry];
+}
+
+prompt {
+	padding: 16px;
+    background-color: @ac;
+    text-color: @bg;
+}
+
+textbox {
+	padding: 8px 16px;
+}
+
+entry {
+    placeholder: "Search...";
+	padding: 1.7% 1.7% 1.7% 0%;
+    background-color: @ac;
+    text-color: @bg;
+}
+
+listview {
+    columns: 1;
+	cycle: false;
+	margin: 0 0 -1px 0;
+	scrollbar: false;
+}
+
+element {
+	padding: 6px;
+}
+
+element selected {
+    margin : 10px;
+	background-color: @se;
+	text-color: @fg;
+    border-radius:  0px;
+}
+
+element-icon {
+    size: 28px;
+    border: 0px;
+}
