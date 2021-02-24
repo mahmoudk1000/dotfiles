@@ -1,28 +1,30 @@
 #!/bin/sh
 
 # options to be displayed
-option0="⏻   Shutdown"
+option0="􀎠   Lock"
 option1="􀅈   Reboot"
-option2="􀎠   Lock"
+option2="⏻   Shutdown"
 option3="⎋   Logout"
 option4="􀟙   Suspend"
 
-uptime=$(uptime -p | sed -e 's/up //g')
+uptime=$(uptime -p | sed -e 's/up /􀟪  System Uptime /g')
+
+rofi_command="rofi -theme $dir/powermenu.rasi"
 
 # options passed into variable
 options="$option0\n$option1\n$option2\n$option3\n$option4"
 
-chosen="$(echo -e "$options" | rofi -theme ~/.config/rofi/powermenu.rasi -lines 5 -dmenu -p "$uptime")"
+chosen="$(echo -e "$options" | $rofi_command -p " $uptime " -lines 5 -dmenu -selected-row 2)"
 
 case $chosen in
     $option0)
-        loginctl poweroff
+        betterlockscreen --lock blur
         ;;
     $option1)
         loginctl reboot
         ;;
     $option2)
-        betterlockscreen --lock blur
+        loginctl poweroff
         ;;
 	$option3)
         killall -u $USER
