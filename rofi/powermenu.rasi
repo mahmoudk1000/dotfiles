@@ -1,60 +1,107 @@
 configuration {
-  font:                  "SF Pro Rounded 13";
-  line-padding:          10;
-  separator-style:       none;
-  hide-scrollbar:        true;
+	font:							"SF Pro Rounded 11";
+    show-icons:                     false;
+    disable-history:                false;
+    fullscreen:                     false;
+	hide-scrollbar: 				true;
+	sidebar-mode: 					false;
 }
 
 * {
-  bg:  #2e3440ff;
-  se:  #4c566aff;
-  fg:  #eceff4ff;
-  ac:  #5e81acff;
+  al:  #0f0f0fff;
+  bg:  #0f0f0fff;
+  se:  #131313ff;
+  fg:  #f0f0f0ff;
+  ac:  #9ec49fff;
 }
 
-* {
-	background-color: @bg;
-	text-color: @fg;
-	spacing: 0;
-	width: 370px;
+window {
+    height:                         328px;
+    transparency:                   "real";
+    background-color:               @bg;
+    text-color:                     @fg;
+	border:							0px;
+	border-color:					@ac;
+    border-radius:                  50px;
+	width:							50%;
+    location:                       center;
+    x-offset:                       0;
+    y-offset:                       0;
+}
+
+prompt {
+    enabled: 						true;
+	padding: 						1.25% 0.75% 1.25% 0.75%;
+	background-color: 				@ac;
+	text-color: 					@bg;
+	font:							"Iosevka Nerd Font 12";
+    border-radius:                  100%;
 }
 
 inputbar {
-    children: [ prompt ];
-    expand: false;
-    position: center;
-    border-radius: 4px;
-    background-color: @ac;
-}
-
-textbox-prompt-colon {
-    padding: 1.7% 0% 1.7% 1.5%;
-	str: "􀐫   Syetem Uptime  -";
-    background-color: @ac;
-    text-color: @bg;
-}
-
-prompt{
-    expand: false;
-    padding: 1.7% 1.7% 1.7% 1.7%;
-    enabled: true;
-	background-color: @ac;
-	text-color: @bg;
+	children: 						[ prompt ];
+    background-color:               @bg;
+    text-color:                     @fg;
+    expand:                         false;
+	border:							0%;
+    border-radius:                  100%;
+	border-color:					@ac;
 }
 
 listview {
-	cycle: true;
-	margin: 0 0 0 0;
-	scrollbar: false;
+    background-color:               @al;
+    padding:                        0px;
+    columns:                        1;
+    lines:                          5;
+    spacing:                       	1%;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         horizontal;
 }
 
-element selected {
-    margin: 10px;
-	background-color: @se;
-	text-color: @fg;
-    border-radius:  4px;
+mainbox {
+    background-color:               @al;
+	border:							10px 0px 10px 0px;
+    border-radius:                  50px;
+	border-color:					@ac;
+    children:                       [ inputbar, listview ];
+    spacing:                       	2%;
+    padding:                        4% 2% 2% 2.5%;
 }
 
-element{
-    padding: 12px;
+element {
+    size:                           64px;
+    border:                         0.677%;
+    border-color:                  	@se;
+    border-radius:                  15px;
+    background-color:               @se;
+	padding: 						2% 2.4% 7% 1%;
+}
+
+element-selected {
+    size:                           64px;
+    border:                         1%;
+    border-color:                  	@ac;
+    border-radius:                  15px;
+    background-color:               @se;
+	padding: 						2% 1% 6% 1%;
+}
+
+
+element-text {
+    font:							"TerminessTTF Nerd Font 64";
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    margin:                         0.5% 0.25% 0.5% 0.25%;
+    padding:                        1% 0.5% 1% 0.5%;
+}
+
+element-text selected {
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    background-color:               @se;
+    text-color:                     @ac;
+    border-radius:                  100%;
 }

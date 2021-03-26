@@ -12,7 +12,7 @@ alt + Tab
 
 # open wifi menu
 super + i
-    rofi-wifi-menu
+    /home/mahmoud/.bin/rofi-wifi-menu.sh
 
 # open bluetooth menu
 super + b
@@ -113,6 +113,10 @@ XF86Audio{Next,Prev,Play}
 # next, previous, play-pause toggle for mpd
 ctrl + XF86Audio{Next,Prev,Play,Play}
     mpc {next,prev,pause,play}  && notify-send "  " "$(mpc current)"
+
+# stop ncmpcpp
+super + ctrl + s
+    mpc stop
 
 # quit/restart bspwm
 super + alt + {q,r}

@@ -1,74 +1,116 @@
 configuration {
-  font:                  "SF Pro Rounded 13";
-  icon-theme:            "Flatery";
-  show-icons:            true;
-  drun-display-format:   "{icon}  {name}";
-  display-run:           "⎇ ";
-  display-drun:          "􀊫 ";
-  display-window:        "􀇴 ";
-  modi:                  "window,run,drun";
-  lines:                 7;
-  line-padding:          10;
-  bw:                    0;
-  padding:               0;
-  separator-style:       none;
-  hide-scrollbar:        true;
-  line-margin:           0;
+	font:							"Iosevka Nerd Font 10";
+    show-icons:                     true;
+	icon-theme: 					"Papirus";
+    disable-history:                false;
+    fullscreen:                     false;
+	hide-scrollbar: 				true;
+	sidebar-mode: 					false;
 }
 
 * {
-  bg:  #2e3440ff;
-  se:  #4c566aff;
-  fg:  #eceff4ff;
-  ac:  #5e81acff;
+  al:  #0f0f0fff;
+  bg:  #0f0f0fff;
+  se:  #131313ff;
+  fg:  #f0f0f0ff;
+  ac:  #9ec49fff;
 }
 
-* {
-	background-color: @bg;
-	text-color: @fg;
-	spacing: 0;
-	width: 400px;
-}
-
-inputbar {
-	border: 0 0 1px 0;
-	children: [prompt, entry];
+window {
+    height:                         500px;
+    transparency:                   "real";
+    background-color:               @bg;
+    text-color:                     @fg;
+	border:							0px;
+	border-color:					@ac;
+    border-radius:                  50px;
+	width:							50%;
+    location:                       center;
+    x-offset:                       0;
+    y-offset:                       0;
 }
 
 prompt {
-	padding: 16px;
-    background-color: @ac;
-    text-color: @bg;
+    enabled: 						true;
+	padding: 						1.25% 0.75% 1.25% 0.75%;
+	background-color: 				@ac;
+	text-color: 					@fg;
+	font:							"Iosevka Nerd Font 12";
+    border-radius:                  100%;
 }
 
-textbox {
-	padding: 8px 16px;
+textbox-prompt-colon {
+	padding: 						1.40% 0% 1% 0%;
+	background-color: 				@bg;
+	text-color: 					@fg;
+	expand: false;
+	str: " :: ";
 }
 
 entry {
-	padding: 1.7% 1.7% 1.7% 0%;
-    background-color: @ac;
-    text-color: @bg;
+    background-color:               @al;
+    text-color:                     @fg;
+    placeholder-color:              @fg;
+    expand:                         true;
+    horizontal-align:               0;
+    placeholder:                    "SSID Name";
+	padding: 						1.5% 0.5% 1% 0%;
+    blink:                          true;
+}
+
+inputbar {
+	children: 						[ prompt, textbox-prompt-colon, entry ];
+    background-color:               @bg;
+    text-color:                     @fg;
+    expand:                         false;
+	border:							0%;
+    border-radius:                  100%;
+	border-color:					@ac;
 }
 
 listview {
-	cycle: false;
-	margin: 0 0 -1px 0;
-	scrollbar: false;
+    background-color:               @al;
+    padding:                        0px;
+    columns:                        3;
+    lines:                          3;
+    spacing:                       	1%;
+    cycle:                          false;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+mainbox {
+    background-color:               @al;
+	border:							10px 0px 10px 0px;
+    border-radius:                  50px;
+	border-color:					@ac;
+    children:                       [ inputbar, listview ];
+    spacing:                       	2%;
+    padding:                        4% 2% 2% 2%;
 }
 
 element {
-	padding: 16px;
+    background-color:               @bg;
+    text-color:                     @fg;
+    orientation:                    vertical;
+    border-radius:                  0%;
+    padding:                        0%;
 }
 
-element selected {
-    margin : 10px;
-	background-color: @se;
-	text-color: @fg;
-    border-radius:  8px;
+
+element-text {
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    margin:                         0.5% 0.25% 0.5% 0.25%;
+    padding:                        1% 0.5% 1% 0.5%;
 }
 
-element-icon {
-    size: 28px;
-    border: 0px;
+element-text selected {
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    background-color:               @ac;
+    text-color:                     @bg;
+    border-radius:                  100%;
 }

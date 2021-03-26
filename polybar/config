@@ -8,9 +8,9 @@
 ;;
 ;; ==================== COLORS ======================
 [colors]
-background = #2e3440
-foreground = #eceff4
-accent     = #5e81ac
+background = #0f0f0f
+foreground = #f0f0f0
+accent     = #9ec49f
 
 black       = ${xrdb:Polybar.color0}
 red         = ${xrdb:Polybar.color1}
@@ -35,7 +35,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 font-0 = Scientifica:style=Bold:size=11;3
-font-1 = TerminessTTF Nerd Font:size=11:antialias=true;3
+font-1 = SF Pro Rounded:size=11;2
 
 module-margin-left = 2
 module-margin-right = 2
@@ -48,13 +48,13 @@ modules-center = time
 
 [bar/two]
 inherit = bar/main
-width = 32%
-offset-x = 1301
+width = 34%
+offset-x = 1262
 modules-center = pulseaudio xbacklight battery bluetooth wifi lang
 
 [bar/three]
 inherit = bar/main
-width = 17.1%
+width = 19.1%
 offset-x = 260
 modules-center = bspwm
 
@@ -73,21 +73,21 @@ format-foreground = ${colors.foreground}
 
 label-monitor = %name%
 
-label-focused = 
+label-focused = 􀀁
 label-focused-padding = 2
 label-focused-foreground = ${colors.accent}
 label-focused-background = ${colors.background}
 
-label-occupied = 
+label-occupied = 􀀂
 label-occupied-padding = 2
 label-occupied-foreground = ${colors.foreground}
 label-occupied-background = ${colors.background}
 
-label-urgent = 
+label-urgent = 􀀁
 label-urgent-padding = 2
 label-urgent-foreground = ${colors.red}
 
-label-empty = 
+label-empty = 􀀀
 label-empty-padding = 2
 label-empty-foreground = ${colors.black}
 label-empty-background = ${colors.background}
@@ -100,7 +100,7 @@ interface = wlp3s0
 interval = 3.0
 tail = true
 
-format-connected = "<ramp-signal>  <label-connected>"
+format-connected = "<ramp-signal> <label-connected>"
 
 format-connected-foreground = ${colors.foreground}
 format-connected-background = ${colors.background}
@@ -108,15 +108,15 @@ format-connected-background = ${colors.background}
 label-connected = %essid% |  %downspeed:1:10%   %upspeed:1:10%
 label-connected-background = ${colors.background}
 
-format-disconnected-prefix  = "睊  "
+format-disconnected-prefix  = 􀙈
 format-disconnected-prefix-foreground = ${colors.green}
 format-disconnected-prefix-background = ${colors.background}
 format-disconnected-foreground = ${colors.foreground}
 format-disconnected-background = ${colors.background}
 
-format-disconnected = No-Wifi
+format-disconnected = " No-Wifi"
 
-ramp-signal-0 = 直
+ramp-signal-0 = 􀙇
 ramp-signal-foreground = ${colors.green}
 ramp-signal-background = ${colors.background}
 
@@ -133,9 +133,9 @@ adapter = ADP0
 poll-interval = 5
 time-format = %H:%M
 
-format-charging = "<animation-charging>  <label-charging>"
-format-discharging = "<ramp-capacity>  <label-discharging>"
-format-full-prefix = 
+format-charging = "<animation-charging> <label-charging>"
+format-discharging = "<ramp-capacity> <label-discharging>"
+format-full-prefix = 􀊼
 format-full-prefix-foreground = ${colors.magenta}
 format-full-prefix-background = ${colors.background}
 label-full = " charged"
@@ -146,16 +146,16 @@ label-charging-foreground = ${colors.foreground}
 label-discharging-foreground = ${colors.foreground}
 label-discharging-background = ${colors.background}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-5 = 
+ramp-capacity-0 = 􀛪
+ramp-capacity-1 = 􀛩
+ramp-capacity-2 = 􀛩
+ramp-capacity-3 = 􀛨
+ramp-capacity-4 = 􀛨
+ramp-capacity-5 = 􀛨
 ramp-capacity-background = ${colors.background}
 ramp-capacity-foreground = ${colors.magenta}
 
-animation-charging-0 = 
+animation-charging-0 = 􀢋
 animation-charging-background = ${colors.background}
 animation-charging-foreground = ${colors.magenta}
 animation-charging-framerate = 1
@@ -172,7 +172,7 @@ exec = ~/.bin/light.sh
 scroll-up = exec light -A 10
 scroll-down = exec light -U 10
 format-prefix-foreground = ${colors.red}
-format-prefix = "  "
+format-prefix = "􀛮 "
 
 ;; =================== LANG =====================
 
@@ -181,8 +181,8 @@ type = custom/script
 exec = ~/.bin/lang.sh
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-format-prefix = "  "
-interval = 5
+format-prefix = "􀆪 "
+interval = 1
 format-prefix-foreground = ${colors.blue}
 format-prefix-background = ${colors.background}
 
@@ -205,7 +205,7 @@ tail = true
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = "<ramp-volume>  <label-volume>"
+format-volume = "<ramp-volume> <label-volume>"
 
 label-volume =  "%percentage%%"
 label-volume-background = ${colors.background}
@@ -215,10 +215,10 @@ label-muted = MUTED
 label-muted-foreground = ${colors.foreground}
 label-muted-background = ${colors.background}
 
-ramp-volume-0 =  
-ramp-volume-1 =  
-ramp-volume-2 =  
-ramp-volume-3 =  
+ramp-volume-0 = 􀊡
+ramp-volume-1 = 􀊥
+ramp-volume-2 = 􀊧
+ramp-volume-3 = 􀊩
 ramp-volume-foreground = ${colors.yellow}
 ramp-volume-background = ${colors.background}
 
@@ -229,7 +229,7 @@ type = internal/date
 interval = 1
 date = %a, %d %B
 time = %I:%M %
-format-prefix = 
+format-prefix = 􀐬
 format-prefix-foreground = ${colors.accent}
 format = <label>
 label = "  %date% | %time% "
@@ -241,9 +241,9 @@ format-foreground = ${colors.foreground}
 [module/bluetooth]
 type = custom/script
 exec = rofi-bluetooth --status
-interval = 20
+interval = 1
 click-left = rofi-bluetooth
-format-prefix = " "
+format-prefix = 􀑛
 format-prefix-foreground = ${colors.accent}
 format = <label>
 label-foreground = ${colors.foreground}
