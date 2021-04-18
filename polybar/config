@@ -8,9 +8,9 @@
 ;;
 ;; ==================== COLORS ======================
 [colors]
-background = #0f0f0f
-foreground = #f0f0f0
-accent     = #9ec49f
+background = ${xrdb:polybar.background}
+foreground = ${xrdb:polybar.foreground}
+accent     = ${xrdb:polybar.accent}
 
 black       = ${xrdb:Polybar.color0}
 red         = ${xrdb:Polybar.color1}
@@ -244,7 +244,7 @@ exec = rofi-bluetooth --status
 interval = 1
 click-left = rofi-bluetooth
 format-prefix = 􀑛
-format-prefix-foreground = ${colors.accent}
+format-prefix-foreground = ${colors.cyan}
 format = <label>
 label-foreground = ${colors.foreground}
 

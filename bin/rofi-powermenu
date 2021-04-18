@@ -1,35 +1,41 @@
 #!/bin/sh
 
 # options to be displayed
-option0="􀎠   Lock"
-option1="􀅈   Reboot"
-option2="⏻   Shutdown"
-option3="⎋   Logout"
-option4="􀟙   Suspend"
+#option0="􀎠  Lock"
+#option1="􀅈  Reboot"
+#option2="⏻  Shutdown"
+#option3="⎋  Logout"
+#option4="􀟙  Suspend"
+
+option0=""
+option1=""
+option2=""
+option3=""
+option4=""
 
 uptime=$(uptime -p | sed -e 's/up /􀟪  System Uptime /g')
 
-rofi_command="rofi -theme $dir/powermenu.rasi"
+rofi_command="rofi -theme ~/.config/rofi/powermenu.rasi"
 
 # options passed into variable
 options="$option0\n$option1\n$option2\n$option3\n$option4"
 
-chosen="$(echo -e "$options" | $rofi_command -p " $uptime " -lines 5 -dmenu -selected-row 2)"
+chosen="$(echo -e "$options" | $rofi_command -p " $uptime " -dmenu -selected-row 2)"
 
 case $chosen in
     $option0)
         betterlockscreen --lock blur
         ;;
     $option1)
-        loginctl reboot
+        systemctl reboot
         ;;
     $option2)
-        loginctl poweroff
+        systemctl poweroff
         ;;
 	$option3)
         killall -u $USER
         ;;
     $option4)
-        loginctl suspend
+        systemctl suspend
         ;;
 esac

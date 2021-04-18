@@ -1,51 +1,45 @@
 configuration {
-	font:							"Iosevka Nerd Font 10";
+    font:		 	    "SF Pro Rounded 10";
     show-icons:                     true;
-	icon-theme: 					"Papirus";
-    display-drun: 					" Applications";
+    icon-theme: 	  	    "Papirus";
+    display-drun: 	 	    " Applications";
     drun-display-format:            "{name}";
     disable-history:                false;
     fullscreen:                     false;
-	hide-scrollbar: 				true;
-	sidebar-mode: 					false;
+    hide-scrollbar:   		    true;
+    sidebar-mode: 		    false;
 }
 
-* {
-  al:  #0f0f0fff;
-  bg:  #0f0f0fff;
-  se:  #131313ff;
-  fg:  #f0f0f0ff;
-  ac:  #9ec49fff;
-}
+@import "colors.rasi"
 
 window {
     transparency:                   "real";
     background-color:               @bg;
     text-color:                     @fg;
-	border:							0px;
-	border-color:					@ac;
+    border:			    0px;
+    border-color:	 	    @ac;
     border-radius:                  50px;
-	width:							50%;
+    width:		            50%;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;
 }
 
 prompt {
-    enabled: 						true;
-	padding: 						1.25% 0.75% 1.25% 0.75%;
-	background-color: 				@ac;
-	text-color: 					@fg;
-	font:							"SF Pro Rounded 12";
+    enabled: 			    true;
+    padding: 			    1.25% 0.75% 1.25% 0.75%;
+    background-color: 		    @ac;
+    text-color: 	  	    @fg;
+    font: 			    "SF Pro Rounded 12";
     border-radius:                  100%;
 }
 
 textbox-prompt-colon {
-	padding: 						1.40% 0% 1% 0%;
-	background-color: 				@bg;
-	text-color: 					@fg;
-	expand: false;
-	str: " :: ";
+    padding: 			    1.40% 0% 1% 0%;
+    background-color: 		    @bg;
+    text-color: 		    @fg;
+    expand:                         false;
+    str:                            " :: ";
 }
 
 entry {
@@ -55,18 +49,18 @@ entry {
     expand:                         true;
     horizontal-align:               0;
     placeholder:                    "Search";
-	padding: 						1.5% 0.5% 1% 0%;
+    padding: 			    1.5% 0.5% 1% 0%;
     blink:                          true;
 }
 
 inputbar {
-	children: 						[ prompt, textbox-prompt-colon, entry ];
+    children: 			    [ prompt, textbox-prompt-colon, entry ];
     background-color:               @bg;
     text-color:                     @fg;
     expand:                         false;
-	border:							0%;
+    border:			    0%;
     border-radius:                  100%;
-	border-color:					@ac;
+    border-color:		    @ac;
 }
 
 listview {
@@ -74,7 +68,7 @@ listview {
     padding:                        0px;
     columns:                        6;
     lines:                          3;
-    spacing:                       	1%;
+    spacing:                        1%;
     cycle:                          false;
     dynamic:                        true;
     layout:                         vertical;
@@ -82,11 +76,11 @@ listview {
 
 mainbox {
     background-color:               @al;
-	border:							10px 0px 10px 0px;
+    border:			    10px 0px 10px 0px;
     border-radius:                  50px;
-	border-color:					@ac;
+    border-color: 		    @ac;
     children:                       [ inputbar, listview ];
-    spacing:                       	2%;
+    spacing:                   	    2%;
     padding:                        4% 2% 2% 2%;
 }
 
@@ -101,10 +95,10 @@ element {
 element-icon {
     size:                           64px;
     border:                         1%;
-    border-color:                  	@se;
+    border-color:                   @se;
     border-radius:                  15px;
     background-color:               @se;
-	padding: 						2% 1% 2% 1%;
+    padding: 			    2% 1% 2% 1%;
 }
 
 element-text {

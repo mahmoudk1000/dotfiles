@@ -1,6 +1,6 @@
 # launch terminal
 super + Return
-   alacritty
+   st
 
 # program launcher
 super + d

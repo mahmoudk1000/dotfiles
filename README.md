@@ -12,13 +12,13 @@ A bunch of files that start with . and makes linux more awesome.
 - Menu : [rofi](https://wiki.archlinux.org/index.php/Rofi)
 - Editor : [nvim](https://neovim.org/)
 - Font : [SF Pro](https://developer.apple.com/fonts/)
-- Terminal : [Alacritty](https://aur.archlinux.org/packages/alacritty-ligatures/)
+- Terminal : [st](https://github.com/siduck76/st)
 - Shell : [zsh](https://wiki.archlinux.org/index.php/Zsh)
 
 # Screenshots
 
-![alt text](https://github.com/Mahmoudk1000/Dotfiles/blob/master/Screen/11.png)
+![alt text](https://github.com/Mahmoudk1000/Dotfiles/blob/master/Screen/1.png)
 
-![alt text](https://github.com/Mahmoudk1000/Dotfiles/blob/master/Screen/22.png)
+![alt text](https://github.com/Mahmoudk1000/Dotfiles/blob/master/Screen/2.png)
 
-![alt text](https://github.com/Mahmoudk1000/Dotfiles/blob/master/Screen/33.png)
+![alt text](https://github.com/Mahmoudk1000/Dotfiles/blob/master/Screen/3.png)
