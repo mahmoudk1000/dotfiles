@@ -1,5 +1,5 @@
 configuration {
-    font:			   "SF Pro Rounded 11";
+    font:			   "Iosevka Curly 10";
     show-icons:                     false;
     disable-history:                false;
     fullscreen:                     false;
@@ -10,92 +10,103 @@ configuration {
 @import "colors.rasi"
 
 window {
-    height:                         328px;
-    transparency:                   "real";
-    background-color:               @bg;
-    text-color:                     @fg;
-    border:			    0px;
-    border-color:	 	    @ac;
-    border-radius:                  50px;
-    width:		 	    50%;
-    location:                       center;
-    x-offset:                       0;
-    y-offset:                       0;
+  transparency:                   "real";
+  background-color:               @bg;
+  text-color:                     @fg;
+  border-radius:                  0px;
+  height:                         28.5%;
+  width:                          50%;
+  location:                       center;
+  x-offset:                       0;
+  y-offset:                       0;
 }
 
 prompt {
-    enabled: 		  	    true;
-    padding: 		  	    1.25% 0.75% 1.25% 0.75%;
-    background-color: 		    @ac;
-    text-color: 		    @bg;
-    font:			    "SF Pro Rounded 12";
-    border-radius:                  100%;
+  enabled:   			  true;
+  padding:                        0.5% 0.5% 0.5% 0%;
+  background-color: 		  @se;
+  text-color: 			  @fg;
+}
+
+textbox-prompt-colon {
+  expand: 			  false;
+  background-color: 	 	  @se;
+  text-color: 			  @fg;
+  padding:                        0.5% 0.5% 0.5% 0%;
 }
 
 inputbar {
-    children: 			    [ prompt ];
-    background-color:               @bg;
-    text-color:                     @fg;
-    expand:                         false;
-    border:			    0%;
-    border-radius:                  100%;
-    border-color:	  	    @ac;
+  children: 		          [ textbox-prompt-colon, prompt ];
+  background-color:               @se;
+  text-color:                     @fg;
+  expand:                         false;
+  border:                  	  0% 0% 0% 0.2%;
+  border-color:                   @border;
+  margin:                         0% 28% 0% 0%;
+  padding:                        0.5%;
+  position:                       center;
+  border-radius:                  8px;
 }
 
 listview {
-    background-color:               @al;
-    padding:                        0px;
-    columns:                        1;
-    lines:                          5;
-    spacing:                        1%;
-    cycle:                          true;
-    dynamic:                        true;
-    layout:                         horizontal;
+  background-color:               @bg;
+  margin:                         0% 0% 0% 0%;
+  spacing:                        2%;
+  cycle:                          true;
+  dynamic:                        true;
+  layout:                         horizontal;
 }
 
 mainbox {
-    background-color:               @al;
-    border:			    10px 0px 10px 0px;
-    border-radius:                  50px;
-    border-color:	  	    @ac;
-    children:                       [ inputbar, listview ];
-    spacing:                        2%;
-    padding:                        4% 2% 2% 2.5%;
+  background-color:               @bg;
+  children:                       [ inputbar, listview ];
+  spacing:                        3.5%;
+  padding:                        4% 0% 0% 2%;
 }
 
 element {
-    size:                           64px;
-    border:                         0.677%;
-    border-color:                   @se;
-    border-radius:                  15px;
-    background-color:               @se;
-    padding: 			    2% 2.4% 7% 1%;
+  background-color:               @se;
+  text-color:                     @fg;
+  orientation:                    horizontal;
+  border-radius:                  0%;
+  border-radius:                  8px;
 }
-
-element-selected {
-    size:                           64px;
-    border:                         1%;
-    border-color:                   @ac;
-    border-radius:                  15px;
-    background-color:               @se;
-    padding: 			    2% 1% 6% 1%;
-}
-
 
 element-text {
-    font:			    "TerminessTTF Nerd Font 64";
-    expand:                         true;
-    horizontal-align:               0.5;
-    vertical-align:                 0.5;
-    margin:                         0.5% 0.25% 0.5% 0.25%;
-    padding:                        1% 0.5% 1% 0.5%;
+  font:			          "feather 64";
+  expand:                         true;
+  horizontal-align:               0.5;
+  vertical-align:                 0.5;
+  margin:                         2% 2.2% 9.5% 2.2%;
 }
 
-element-text selected {
-    expand:                         true;
-    horizontal-align:               0.5;
-    vertical-align:                 0.5;
-    background-color:               @se;
-    text-color:                     @ac;
-    border-radius:                  100%;
+element normal.urgent,
+element alternate.urgent {
+  background-color:               @ac;
+  text-color:                     @fg;
+  border-radius:                  0.2%;
+}
+
+element normal.active,
+element alternate.active {
+  background-color:               @se;
+  text-color:                     @fg;
+}
+
+element selected {
+  background-color:               @ac;
+  text-color:                     @fg;
+  border:                  	  0% 0% 0% 0.2%;
+  border-color:                   @ac;
+  border-radius:                  8px;
+}
+
+element selected.urgent {
+  background-color:               @ac;
+  text-color:                     @fg;
+}
+
+element selected.active {
+  background-color:               @se;
+  color:                          @fg;
 }

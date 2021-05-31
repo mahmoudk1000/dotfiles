@@ -32,11 +32,11 @@ super + shift + l
 
 # launch software
 super + {w,f,s,t}
-    {firefox,thunar,LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify,telegram-desktop}
+    {firefox, thunar, LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify, telegram-desktop}
 
 # close and kill
 super + {_,shift + }q
-	bspc node -{c,k}
+    bspc node -{c,k}
 
 # turn on redshift
 super + shift + o
@@ -92,7 +92,7 @@ super + {_,shift + }{Left,Down,Up,Right}
 
 # full screenshot, selection area, full in 5 seconds
 Print + {_,shift,alt}
-    flameshot {full -p,gui -p,full -d 5000 -p} /home/mahmoud/Screenshots
+    flameshot {full -p,gui -p,full -d 5000 -p} /home/mahmoud/Scrots
 
 # increase/decrease volume by 5%
 XF86Audio{Raise,Lower}Volume

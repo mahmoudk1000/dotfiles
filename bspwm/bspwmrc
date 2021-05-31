@@ -17,11 +17,11 @@ setxkbmap -model pc104 -layout us,ara -variant ,, -option grp:alt_shift_toggle &
 # picom
 picom --experimental-backends -b
 
+# Set Brightness to 50
+xbacklight -set 50
+
 # unclutter (hides mouse while typing)
 unclutter -idle 2 &
-
-# start pulseaudio daemon
-pulseaudio --start
 
 # set root pointer
 xsetroot -cursor_name left_ptr
@@ -30,15 +30,14 @@ xsetroot -cursor_name left_ptr
 bspc monitor -d 1 2 3 4 5 6 7 8
 
 # bspwm settings
-bspc config border_width 0
-bspc config window_gap 5
+bspc config window_gap 3
 bspc config top_padding 0
 bspc config right_padding 0
-bspc config bottom_padding 45
+bspc config bottom_padding 43
 bspc config left_padding 0
 
 bspc config split_ratio 0.5
-bspc config borderless_monocle false
+bspc config borderless_monocle true
 bspc config gapless_monocle true
 bspc config paddingless_monocle true
 
@@ -49,8 +48,8 @@ bspc config pointer_action1 move
 bspc config pointer_action2 resize_side
 bspc config pointer_action3 resize_corner
 
-bspc config border_width 3
-bspc config focused_border_color "#fc6195"
+bspc config border_width 0
+bspc config focused_border_color "#a3b8ef"
 bspc config normal_border_color  "#0f111a"
 
 # some window rules
