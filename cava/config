@@ -16,8 +16,8 @@ background = '#090909'
 foreground = '#090909'
 gradient = 1
 gradient_count = 3
-gradient_color_1 = '#00b580'
-gradient_color_2 = '#ffe7a9'
+gradient_color_1 = '#9ed491'
+gradient_color_2 = '#fbdf90'
 
 [smoothing]
 

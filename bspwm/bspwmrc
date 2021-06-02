@@ -1,9 +1,7 @@
 #!/bin/sh
 
 # polybar
-polybar one &
-polybar two &
-polybar three &
+polybar middle &
 
 # feh background
 ~/.fehbg &
@@ -31,9 +29,9 @@ bspc monitor -d 1 2 3 4 5 6 7 8
 
 # bspwm settings
 bspc config window_gap 3
-bspc config top_padding 0
+bspc config top_padding 43
 bspc config right_padding 0
-bspc config bottom_padding 43
+bspc config bottom_padding 0
 bspc config left_padding 0
 
 bspc config split_ratio 0.5
@@ -50,7 +48,7 @@ bspc config pointer_action3 resize_corner
 
 bspc config border_width 0
 bspc config focused_border_color "#a3b8ef"
-bspc config normal_border_color  "#0f111a"
+bspc config normal_border_color  "#121212"
 
 # some window rules
 bspc rule -a feh state=floating follow=on

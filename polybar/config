@@ -1,18 +1,10 @@
-;; ======================================= POLYBAR CONFIG ====================================
-;;     ____       _       _
-;;    |  _ \ ___ | |_   _| |__   __ _ _ __
-;;    |  |_) / _ \| | | | | '_ \ / _` | '__|
-;;    |  __/ (_) | | |_| | |_) | (_| | |
-;;    |_|   \___/|_|\__, |_.__/ \__,_|_|
-;;                  |___/
-;;
 ;; ==================== COLORS ======================
 [colors]
 background = ${xrdb:polybar.background}
 foreground = ${xrdb:polybar.foreground}
 accent     = ${xrdb:polybar.color2}
 
-black       = ${xrdb:Polybar.color0}
+black       = ${xrdb:Polybar.color8}
 red         = ${xrdb:Polybar.color1}
 green       = ${xrdb:Polybar.color2}
 yellow      = ${xrdb:Polybar.color3}
@@ -24,7 +16,7 @@ white       = ${xrdb:Polybar.color7}
 ;; ===================== BARS ========================
 [bar/main]
 monitor = eDP1
-bottom = true
+bottom = fasle
 offset-y = 3
 height = 40
 radius = 6
@@ -33,32 +25,21 @@ wm-restack = bspwm
 override-redirect = true
 
 font-0 = Iosevka Curly:size=9;3
-font-1 = SF Pro Rounded:size=9;2
+font-1 = SF Pro Rounded:size=9;3
 
 module-margin-left = 2
 module-margin-right = 2
 
-background = ${colors.background}
-foreground = ${colors.foreground}
-[bar/one]
+[bar/middle]
 inherit = bar/main
-width = 11%
-offset-x = 3
+width = 80%
+offset-x = 10%
+
+modules-right =  pulseaudio xbacklight lang battery bluetooth wifi
 modules-center = time
+modules-left = bspwm
 
-[bar/two]
-inherit = bar/main
-width = 30%
-offset-x = 1341
-modules-center = pulseaudio xbacklight battery bluetooth wifi lang
-
-[bar/three]
-inherit = bar/main
-width = 18%
-offset-x = 217
-modules-center = bspwm
-
-;; =================== BSPWM =====================
+;; ===================== BSPWM =======================
 [module/bspwm]
 type = internal/bspwm
 
@@ -96,14 +77,13 @@ tail = true
 format-connected = "<ramp-signal> <label-connected>"
 
 label-connected = %essid% | ▼ %downspeed:1:10%  ▲ %upspeed:1:10%
-
-format-disconnected-prefix  = 􀙈
-format-disconnected-prefix-foreground = ${colors.green}
-
-format-disconnected = " No-Wifi"
-
+label-connected-padding-right = 2
 ramp-signal-0 = 􀙇
 ramp-signal-foreground = ${colors.green}
+
+format-disconnected = " No-Wifi  "
+format-disconnected-prefix  = 􀙈
+format-disconnected-prefix-foreground = ${colors.green}
 
 ;; =================== BATTERY =====================
 
@@ -174,7 +154,7 @@ ramp-volume-2 = 􀊧
 ramp-volume-3 = 􀊩
 ramp-volume-foreground = ${colors.yellow}
 
-;; =================== TIME =====================
+;; ====================== TIME ========================
 
 [module/time]
 type = internal/date
@@ -186,7 +166,7 @@ format-prefix-foreground = ${colors.accent}
 format = <label>
 label = " %date% | %time%"
 
-;; ================= Bluetooth ==================
+;; ==================== Bluetooth ====================
 
 [module/bluetooth]
 type = custom/script
@@ -196,11 +176,3 @@ click-left = rofi-bluetooth
 format-prefix = 􀑛
 format-prefix-foreground = ${colors.cyan}
 format = <label>
-
-;; ================= EOF =======================
-;; =           _____ ___  _____                =
-;; =          | ____/ _ \|  ___|               =
-;; =          |  _|| | | | |_                  =
-;; =          | |__| |_| |  _|                 =
-;; =          |_____\___/|_|                   =
-;; =============================================
