@@ -2,177 +2,149 @@
 [colors]
 background = ${xrdb:polybar.background}
 foreground = ${xrdb:polybar.foreground}
-accent     = ${xrdb:polybar.color2}
 
-black       = ${xrdb:Polybar.color8}
-red         = ${xrdb:Polybar.color1}
-green       = ${xrdb:Polybar.color2}
-yellow      = ${xrdb:Polybar.color3}
-blue        = ${xrdb:Polybar.color4}
-magenta     = ${xrdb:Polybar.color5}
-cyan        = ${xrdb:Polybar.color6}
-white       = ${xrdb:Polybar.color7}
-
+black        = ${xrdb:polybar.color0}
+red          = ${xrdb:Polybar.color1}
+green        = ${xrdb:Polybar.color2}
+yellow       = ${xrdb:Polybar.color3}
+blue         = ${xrdb:Polybar.color4}
+magenta      = ${xrdb:Polybar.color5}
+cyan         = ${xrdb:Polybar.color6}
+white        = ${xrdb:Polybar.color7}
+dark         = ${xrdb:Polybar.color8}
 ;; ===================== BARS ========================
 [bar/main]
 monitor = eDP1
-bottom = fasle
-offset-y = 3
+bottom = true
 height = 40
-radius = 6
+offset-y = 10
+offset-x = 0%
+radius-top = 0
+radius-bottom = 0
+
 fixed-center = true
 wm-restack = bspwm
 override-redirect = true
 
-font-0 = Iosevka Curly:size=9;3
-font-1 = SF Pro Rounded:size=9;3
+font-0 = Iosevka:style=Semibold:size=10;3
+font-1 = Material Design Icons Desktop:size=10;3
 
-module-margin-left = 2
-module-margin-right = 2
+background = ${colors.background}
+foreground = ${colors.foreground}
 
-[bar/middle]
+[bar/ein]
 inherit = bar/main
-width = 80%
-offset-x = 10%
+width = 15%
+offset-x = 10
 
-modules-right =  pulseaudio xbacklight lang battery bluetooth wifi
+modules-center = bspwm
+
+[bar/zwei]
+inherit = bar/main
+width = 7%
+offset-x = 1563.6
+
+modules-center = pulseaudio backlight
+
+[bar/drei]
+inherit = bar/main
+width = 5%
+offset-x = 1708
+
+modules-center = battery
+
+[bar/vier]
+inherit = bar/main
+width = 5%
+offset-x = 1814
+
 modules-center = time
-modules-left = bspwm
 
 ;; ===================== BSPWM =======================
 [module/bspwm]
 type = internal/bspwm
 
-pin-workspaces = true
 enable-click = true
 enable-scroll = true
 
-format = <label-state>
+label-focused = ⭕
+label-focused-padding = 1
+label-focused-foreground = ${colors.magenta}
 
-label-monitor = %name%
+label-occupied = ⭕
+label-occupied-padding = 1
+label-occupied-foreground = ${colors.dark}
 
-label-focused = 􀀁
-label-focused-padding = 2
-label-focused-foreground = ${colors.accent}
-
-label-occupied = 􀀂
-label-occupied-padding = 2
-
-label-urgent = 􀀁
-label-urgent-padding = 2
+label-urgent = ⭕
+label-urgent-padding = 1
 label-urgent-foreground = ${colors.red}
 
-label-empty = 􀀀
-label-empty-padding = 2
-label-empty-foreground = ${colors.black}
-
-;; =================== WIFI =====================
-
-[module/wifi]
-type = internal/network
-interface = wlp3s0
-interval = 3.0
-tail = true
-
-format-connected = "<ramp-signal> <label-connected>"
-
-label-connected = %essid% | ▼ %downspeed:1:10%  ▲ %upspeed:1:10%
-label-connected-padding-right = 2
-ramp-signal-0 = 􀙇
-ramp-signal-foreground = ${colors.green}
-
-format-disconnected = " No-Wifi  "
-format-disconnected-prefix  = 􀙈
-format-disconnected-prefix-foreground = ${colors.green}
+label-empty = ⬤
+label-empty-padding = 1
+label-empty-foreground = ${colors.dark}
 
 ;; =================== BATTERY =====================
 
 [module/battery]
 type = internal/battery
-
 full-at = 99
-
 battery = BAT0
 adapter = ADP0
-
 poll-interval = 5
-time-format = %H:%M
 
-format-charging = "<animation-charging> <label-charging>"
-format-discharging = "<ramp-capacity> <label-discharging>"
-format-full-prefix = 􀊼
-format-full-prefix-foreground = ${colors.magenta}
-label-full = " Charged"
+format-charging = 󰂄 <label-charging>
+format-charging-foreground = ${colors.blue}
+format-charging-padding = 1
 
-ramp-capacity-0 = 􀛪
-ramp-capacity-1 = 􀛩
-ramp-capacity-2 = 􀛩
-ramp-capacity-3 = 􀛨
-ramp-capacity-4 = 􀛨
-ramp-capacity-5 = 􀛨
-ramp-capacity-foreground = ${colors.magenta}
+format-discharging = 󰁿 <label-discharging>
+format-discharging-foreground = ${colors.blue}
+format-discharging-padding = 1
 
-animation-charging-0 = 􀢋
-animation-charging-foreground = ${colors.magenta}
-animation-charging-framerate = 1
+label-full = Aufgeladen
+label-full-foreground = ${colors.magenta}
+label-full-padding = 1
 
 ;; =================== BACKLIGHT =====================
 
-[module/xbacklight]
-type = internal/xbacklight
-format = <label>
-scroll = true
+[module/backlight]
+type = custom/script
+format = 󰛨 <label>
+format-padding = 1
+format-foreground = ${colors.red}
 exec = ~/.bin/light.sh
-scroll-up = exec light -A 10
-scroll-down = exec light -U 10
-format-prefix-foreground = ${colors.red}
-format-prefix = "􀛮 "
+interval = 0
 
 ;; =================== LANG =====================
 
 [module/lang]
 type = custom/script
+format = 󰖟 <label>
+format-padding = 1
+format-foreground = ${colors.cyan}
+format-background = ${colors.alt}
 exec = ~/.bin/lang.sh
-format-prefix = "􀆪 "
 interval = 1
-format-prefix-foreground = ${colors.blue}
 
 ;; =================== PULSEAUDIO =====================
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = "<ramp-volume> <label-volume>"
-
-label-volume =  "%percentage%%"
-
-label-muted = MUTED
-
-ramp-volume-0 = 􀊡
-ramp-volume-1 = 􀊥
-ramp-volume-2 = 􀊧
-ramp-volume-3 = 􀊩
-ramp-volume-foreground = ${colors.yellow}
+format-volume = 󰕾 <label-volume>
+format-volume-padding = 1
+format-volume-foreground = ${colors.yellow}
+label-volume =  %percentage%
+label-muted = STUMM
+label-muted-foreground = ${colors.yellow}
+label-muted-padding = 1
 
 ;; ====================== TIME ========================
 
 [module/time]
 type = internal/date
 interval = 1
-date = %a, %d %B
-time = %I:%M
-format-prefix = 􀐬
-format-prefix-foreground = ${colors.accent}
-format = <label>
-label = " %date% | %time%"
-
-;; ==================== Bluetooth ====================
-
-[module/bluetooth]
-type = custom/script
-exec = ~/.bin/rofi-bluetooth --status
-interval = 1
-click-left = rofi-bluetooth
-format-prefix = 􀑛
-format-prefix-foreground = ${colors.cyan}
-format = <label>
+time = %H:%M
+format = 󱑂 <label>
+format-padding = 1
+format-foreground = ${colors.green}
+label = %time%

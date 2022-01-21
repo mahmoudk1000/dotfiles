@@ -2,65 +2,49 @@
 super + Return
    st
 
-# program launcher
+# Run dmenu
 super + d
-   rofi -show drun
+    dmenu_run
 
-# Tab menu
-alt + Tab
-    rofi -show window
+# Run rofi
+super + r
+  rofi -show drun
 
 # open wifi menu
 super + i
-    /home/mahmoud/.bin/rofi-wifi-menu.sh
-
-# open bluetooth menu
-super + b
-    /home/mahmoud/.bin/rofi-bluetooth
+    /home/mahmoud/.bin/networkmanager_dmenu
 
 # open powermenu
 super + p
-    /home/mahmoud/.bin/rofi-powermenu
+    /home/mahmoud/.bin/poww
 
-# open mpd menu
-super + m
-    /home/mahmoud/.bin/rofi-mpc
+# status (for when in fullscreen)
+super + x
+  dunstify "$(date +%d" "%a" - "%H:%M" "%p) | $(mpc current | sed "s/-/~/")"
 
 # lunch lock screen
-super + shift + l
-    betterlockscreen -l blur
+super + l
+    betterlockscreen -l #blur
 
 # launch software
-super + {w,f,s,t}
-    {firefox, thunar, LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify, telegram-desktop}
+super + {w,f,s,t,m,n}
+    {firefox, thunar, LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify, telegram-desktop, mailspring, notion-app-enhanced}
 
 # close and kill
 super + {_,shift + }q
     bspc node -{c,k}
 
-# turn on redshift
-super + shift + o
-    redshift -t 6500:4500 -l  31.276433:30.009311  &
-
-# turn off redshift
-super + shift + k
-    pkill redshift
-
-# set the window state
-super + shift + {w,e}
-    bspc node --state {tiled,floating}
-
-# toggle fullscreen/non-fullscreen switch
-super + shift + f
-    bspc node -t "~"{fullscreen,tiled}
+# window state
+super + shift + {d,w,t,f}
+    bspc node -t {floating,pseudo_tiled,tiled,fullscreen}
 
 # focus the node in the given direction
 super + {_,shift + }{Left,Down,Up,Right}
     bspc node -{f,s} {west,south,north,east}
 
-# focus the last node/desktop
-super + {grave,Tab}
-    bspc {node,desktop} -f last
+# alt tab
+super + {_,shift + }Tab
+    bspc node -f {next,prev}.local.!hidden.window
 
 # move forward/backword desktops
 super + shift + {a,s}
@@ -79,12 +63,12 @@ super + alt + {Left,Down,Up,Right}
     bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
-super + {Left,Down,Up,Right}
-    bspc node -v {-20 0,0 20,0 -20,20 0}
+super + ctrl + shift + {Left,Down,Up,Right}
+    bspc node -v {-100 0,0 100,0 -100,100 0}
 
-# Toggle beetwen floating & tiled
-super + space
-    bspc node -t "~"{floating,tiled}
+# make node stick on all desktops
+super + ctrl + s
+	bspc node --flag sticky
 
 # Send the window to another edge of the screen
 super + {_,shift + }{Left,Down,Up,Right}
@@ -104,7 +88,7 @@ XF86AudioMute
 
 # brightness keys
 XF86MonBrightness{Up,Down}
-	xbacklight -{inc,dec} 10
+	light -{A,U} 10
 
 # next, previous, play-pause toggle
 XF86Audio{Next,Prev,Play}
@@ -113,10 +97,6 @@ XF86Audio{Next,Prev,Play}
 # next, previous, play-pause toggle for mpd
 ctrl + XF86Audio{Next,Prev,Play,Play}
     mpc {next,prev,pause,play}  && notify-send "  " "$(mpc current)"
-
-# stop ncmpcpp
-super + ctrl + s
-    mpc stop
 
 # quit/restart bspwm
 super + alt + {q,r}

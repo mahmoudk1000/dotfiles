@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# - borders
+#
+# double borders
+# stolen from:
+# https://github.com/6gk
+#
+
+. /home/mahmoud/.bin/cdefs
+
+outer="0x$bg1" # outer
+innr1="0x$grn" # focused
+innr2="0x$bg2" # normal
+
+trap 'bspc config border_width 0; kill -9 -$$' INT TERM
+
+targets() {
+	case $1 in
+		focused) bspc query -N -n .local.focused.\!fullscreen ;;
+		normal) bspc query -N -n .\!focused.\!fullscreen ;;
+	esac
+}
+
+bspc config border_width 10
+
+draw() {
+	chwb2 -I "$inner" -O "$outer" -i "2" -o "8" $*
+}
+
+{
+	echo
+	bspc subscribe node_geometry node_focus
+} |
+	while read -r _; do
+		[ "$v" ] || v='abcdefg'
+		inner=$innr1 draw $(targets focused)
+		inner=$innr2 draw $(targets normal)
+	done >/dev/null 2>&1

@@ -1,54 +1,76 @@
 #!/bin/sh
 
-# polybar
-polybar middle &
+# functions
+c() { bspc config "$@" & }
+R() { bspc rule -a "$@" & }
+s() { pkill -x "$1"; { sleep 0.1; "$@" & }; }
 
-# feh background
+# Desktop
+bspc monitor -d 1 2 3 4 5 6 7 8 9
+
+# wall
 ~/.fehbg &
 
-# key bindings
-sxhkd &
+# Call col
+. /home/mahmoud/.bin/cdefs
 
-# set keyboard layouts en, ara
-setxkbmap -model pc104 -layout us,ara -variant ,, -option grp:alt_shift_toggle &
+# config
+c window_gap        10
+c border_width      0
+c split_ratio       0.50
 
-# picom
-picom --experimental-backends -b
+c top_padding       0
+c right_padding     0
+c bottom_padding    50
+c left_padding      0
 
-# Set Brightness to 50
-xbacklight -set 50
+# monocle
+c single_monocle      true
+c gapless_monocle     false
+c borderless_monocle  false
 
-# unclutter (hides mouse while typing)
-unclutter -idle 2 &
+c pointer_modifier mod4
 
-# set root pointer
-xsetroot -cursor_name left_ptr
+c click_to_focus true
+c focus_follows_pointer true
 
-# Set some bsp specific stuff
-bspc monitor -d 1 2 3 4 5 6 7 8
+c pointer_action1 move
+c pointer_action2 resize_side
+c pointer_action3 resize_corner
 
-# bspwm settings
-bspc config window_gap 3
-bspc config top_padding 43
-bspc config right_padding 0
-bspc config bottom_padding 0
-bspc config left_padding 0
+# Style
+c normal_border_color   "#$bg0"
+c active_border_color   "#$bg2"
+c focused_border_color  "#$bg1"
 
-bspc config split_ratio 0.5
-bspc config borderless_monocle true
-bspc config gapless_monocle true
-bspc config paddingless_monocle true
+# rules
+R feh state=floating follow=on
+R galculator state=floating follow=on
+R firefox desktop='^1' follow=on
+R Thunar desktop='^4' follow=on
+R ferdi desktop='^5' follow=off
+R notion-app-enhanced desktop='^6' follow=on
+R Mailspring desktop='^7' follow=off
+R TelegramDesktop desktop='^8' follow=on
+R Spotify desktop='^9' follow=off
 
-bspc config pointer_modifier mod4
-bspc config click_to_focus true
-bspc config focus_follows_pointer true
-bspc config pointer_action1 move
-bspc config pointer_action2 resize_side
-bspc config pointer_action3 resize_corner
+# necessities
+{
+    pkill pipewire
+    eval $(gnome-keyring-daemon --start)
+    xset r rate 250 30
+    xsetroot -cursor_name left_ptr
+    light -I
+    setxkbmap -model pc104 -layout us,ara,de -variant ,, -option grp:alt_shift_toggle
+} >/dev/null 2>&1
 
-bspc config border_width 0
-bspc config focused_border_color "#a3b8ef"
-bspc config normal_border_color  "#121212"
-
-# some window rules
-bspc rule -a feh state=floating follow=on
+# app
+s pipewire-run
+s borders
+s picom --experimental-backends -b
+s dunst
+s sxhkd
+s barr
+s flameshot
+s unclutter -idle 2
+s mpd -v

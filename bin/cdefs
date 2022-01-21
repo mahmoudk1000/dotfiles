@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# - cdefs
+#
+# colours for use in other stuff
+#
+
+#f/b
+fg0="$(sed '01q;d' "$HOME/var/col/current")"
+bg0="$(sed '02q;d' "$HOME/var/col/current")"
+crs="$(sed '03q;d' "$HOME/var/col/current")"
+# fg+
+fg1="$(sed '19q;d' "$HOME/var/col/current")"
+fg2="$(sed '11q;d' "$HOME/var/col/current")"
+# bg+
+bg1="$(sed '04q;d' "$HOME/var/col/current")"
+bg2="$(sed '12q;d' "$HOME/var/col/current")"
+# col
+red="$(sed '05q;d' "$HOME/var/col/current")"
+grn="$(sed '06q;d' "$HOME/var/col/current")"
+ylw="$(sed '07q;d' "$HOME/var/col/current")"
+blu="$(sed '08q;d' "$HOME/var/col/current")"
+mag="$(sed '09q;d' "$HOME/var/col/current")"
+cyn="$(sed '10q;d' "$HOME/var/col/current")"

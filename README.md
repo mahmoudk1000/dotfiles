@@ -6,10 +6,11 @@
 
 A bunch of files that start with . and makes linux more awesome.
 
-- OS: [Void Linux](https://voidlinux.org)
+- OS: [Artix Linux](https://artixlinux.org/)
 - WM : [bspwm](https://wiki.archlinux.org/index.php/Bspwm)
 - Bar : [Polybar](https://github.com/polybar/polybar)
-- Menu : [rofi](https://wiki.archlinux.org/index.php/Rofi)
+- Menu : [dmenu](httts://github.com/mahmoudk1000/dmenu)
+- Startpage : [flat](https://github.com/mahmoudk1000/flat-startpage)
 - Editor : [nvim](https://neovim.org/)
 - Font : [Iosevka](https://github.com/be5invis/Iosevka.git)
 - Terminal : [st](https://github.com/siduck76/st)
@@ -19,12 +20,12 @@ A bunch of files that start with . and makes linux more awesome.
 
 ### Desktop
 
-![alt text](https://github.com/Mahmoudk1000/Dotfiles/blob/master/Screen/1.png)
+![alt text](https://github.com/Mahmoudk1000/Dotfiles/blob/master/Screen/one.png)
 
-### Rofi Power Menu
+### Thunar and Zathura
 
-![alt text](https://github.com/Mahmoudk1000/Dotfiles/blob/master/Screen/2.png)
+![alt text](https://github.com/Mahmoudk1000/Dotfiles/blob/master/Screen/two.png)
 
 ### Firefox
 
-![alt text](https://github.com/Mahmoudk1000/Dotfiles/blob/master/Screen/3.png)
+![alt text](https://github.com/Mahmoudk1000/Dotfiles/blob/master/Screen/three.png)
