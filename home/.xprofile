@@ -6,11 +6,3 @@ export XDG_CONFIG_HOME="$HOME/.config"
 [ -d /sbin ] && PATH="$PATH:/sbin"
 [ -d /usr/sbin ] && PATH="$PATH:/usr/sbin"
 [ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
-
-# qt themeing
-export QT_QPA_PLATFORMTHEME=qt5ct
-export QT_STYLE_OVERRIDE=
-
-# keyboard repeat rate
-xset r rate 500 30
-

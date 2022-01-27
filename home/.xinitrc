@@ -15,8 +15,10 @@ fi
 [ -r ~/.Xresources ] && xrdb -merge ~/.Xresources
 [ -r ~/.xprofile ] && . ~/.xprofile
 
-# lock the screen (no, i wont just use a display manager)
-betterlockscreen -l &
+# dbus
+dbus-update-activation-environment --systemd DISPLAY
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
 
 # launch the session, commands below this line will be ignored
-exec dbus-run-session bspwm
+bspwm

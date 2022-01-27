@@ -1,0 +1,55 @@
+configuration {
+  modi: "drun";
+  display-drun: "";
+  drun-display-format: "{icon}";
+  show-icons: true;
+  font: "Iosevka Curly Slab 10";
+  icon-theme: "oomox-Bling";
+}
+
+@theme "/dev/null"
+
+* {
+  bg: #11171D;
+  fg: #DCDDDE;
+  al: #151D25;
+  background-color: @bg;
+  text-color: @fg;
+}
+
+window {
+  location: north;
+  width: 100%;
+  children: [ horibox ];
+}
+prompt {
+  font: "feather 12";
+  background-color: @al;
+  vertical-align: 0.5;
+  padding: 0.6em 0.75em;
+}
+horibox {
+  orientation: horizontal;
+  children: [ prompt, entry, listview ];
+}
+listview {
+  layout: horizontal;
+  spacing: 0.5em;
+  lines: 100;
+}
+entry {
+  placeholder: "Search...";
+  expand: false;
+  width: 25%;
+  padding: 0.65em;
+}
+element {
+  padding: 0.65em 0.75em;
+}
+element selected {
+  background-color: @al;
+}
+element-text, element-icon {
+  background-color: inherit;
+  text-color: inherit;
+}
