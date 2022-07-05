@@ -4,7 +4,7 @@ configuration {
   drun-display-format: "{icon} {name}";
   show-icons: true;
   font: "Iosevka 10";
-  icon-theme: "oomox-aesthetic-dark";
+  icon-theme: "MoDelta";
 }
 
 @theme "/dev/null"

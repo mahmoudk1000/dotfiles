@@ -1,63 +1,59 @@
 configuration {
-  modi: "drun";
-  display-drun: "";
-  drun-display-format: "{icon} {name}";
-  font: "Iosevka 10";
+	font:						   "Material Design Icons Desktop 30";
+    disable-history:            	false;
+	sidebar-mode: 				  false;
+    show-icons:                     false;
 }
 
 @theme "/dev/null"
 
 * {
-  bg: #11171D;
-  fg: #DCDDDE;
-  al: #151D25;
-  background-color: @bg;
-  text-color: @fg;
+    bg:                             #11171D;
+    lg:                             #161D25;
+    fg:                             #E8E2EE;
+    se:                             #D7C1ED;
+    background-color:               @bg;
+    text-color:                     @fg;
 }
 
 window {
-  border: 5;
-  border-color: @al;
-  transparency: "real";
-  orientation: vertical;
-  width: 20%;
-  text-color: @foreground;
-  background-color: @bg;
+    transparency:                   "real";
+    border-radius:                  4px;
+    location:                       center;
+	width:			  			600px;
 }
-mainbox {
-  background-color: @background;
-  children: [ inputbar, listview ];
-  spacing: 5px;
-  padding: 5px 5px 5px 5px;
-}
-prompt {
-  border-radius: 5px;
-  font: "feather 12";
-  background-color: @al;
-  vertical-align: 0.5;
-  padding: 0.6em 0.75em;
-  width: 100%;
-}
-inputbar {
-  orientation: horizontal;
-  children: [ prompt ];
-}
+
 listview {
-  columns: 1;
-  spacing: 1.5px;
-  lines: 5;
+    columns:			    		5;
+    lines:				  		1;
+    spacing:                        12px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
 }
+
+mainbox {
+    children:                       [ listview ];
+    spacing:                        20px;
+    margin:                         20px;
+}
+
 element {
-  background-color: @bg;
-  text-color: @fg;
-  padding: 0.65em 0.75em;
+    background-color:               @lg;
+    border-radius:                  4px;
 }
+
+element-text {
+    background-color:       		inherit;
+    text-color:       	  		inherit;
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    margin:                         25px 15px 20px 7px;
+}
+
 element selected {
-  border-radius: 5px;
-  text-color: @fg;
-  background-color: @al;
-}
-element-text, element-icon {
-  background-color: inherit;
-  text-color: inherit;
+	text-color: 					@bg;
+	background-color:               @se;
+	border-radius:                  4px;
 }

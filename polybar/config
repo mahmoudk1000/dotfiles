@@ -21,10 +21,14 @@ offset-y = 10
 offset-x = 0%
 radius-top = 0
 radius-bottom = 0
+module-margin = 1
 
 fixed-center = true
 wm-restack = bspwm
 override-redirect = true
+
+border-size = 5
+border-color = ${colors.black}
 
 font-0 = Iosevka:style=Semibold:size=10;3
 font-1 = Material Design Icons Desktop:size=10;3
@@ -41,22 +45,15 @@ modules-center = bspwm
 
 [bar/zwei]
 inherit = bar/main
-width = 9.5%
-offset-x = 1458.2
+width = 15%
+offset-x = 1622
 
-modules-center = pulseaudio backlight bluetooth
+modules-center = pulseaudio backlight bluetooth battery
 
 [bar/drei]
 inherit = bar/main
-width = 5%
-offset-x = 1650.4
-
-modules-center = battery
-
-[bar/vier]
-inherit = bar/main
-width = 8%
-offset-x = 1756.4
+width = 10%
+offset-x = 864
 
 modules-center = time
 
@@ -94,24 +91,20 @@ poll-interval = 5
 
 format-charging = 󰂄 <label-charging>
 format-charging-foreground = ${colors.blue}
-format-charging-padding = 1
 
 format-discharging = 󰁿 <label-discharging>
 format-discharging-foreground = ${colors.blue}
-format-discharging-padding = 1
 
-label-full = Aufgeladen
-label-full-foreground = ${colors.magenta}
-label-full-padding = 1
+format-full = 󰁹 <label-full>
+format-full-foreground = ${colors.magenta}
 
 ;; =================== BACKLIGHT =====================
 
 [module/backlight]
 type = custom/script
 format = 󰛨 <label>
-format-padding = 2
 format-foreground = ${colors.red}
-exec = ~/.bin/light.sh
+exec = lighting
 interval = 0
 
 ;; =================== LANG =====================
@@ -119,7 +112,6 @@ interval = 0
 [module/lang]
 type = custom/script
 format = 󰖟 <label>
-format-padding = 1
 format-foreground = ${colors.cyan}
 format-background = ${colors.alt}
 exec = ~/.bin/lang.sh
@@ -133,9 +125,8 @@ type = internal/pulseaudio
 format-volume = 󰕾 <label-volume>
 format-volume-foreground = ${colors.yellow}
 label-volume =  %percentage%
-label-muted = STUMM
+label-muted = Muted
 label-muted-foreground = ${colors.yellow}
-label-muted-padding = 1
 
 ;; ====================== TIME ========================
 
@@ -145,7 +136,6 @@ interval = 1
 time = %H:%M
 date = %b %d,
 format = 󱑂 <label>
-format-padding = 1
 format-foreground = ${colors.green}
 label = %date% %time%
 

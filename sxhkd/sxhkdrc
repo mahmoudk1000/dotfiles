@@ -3,24 +3,24 @@ super + Return
    st
 
 # Run dmenu
-super + d
-    dmenu_run
+super + r
+    dmenu_run -p "Run: "
 
 # Run rofi
-super + r
+super + d
   rofi -show drun
 
 # open wifi menu
 super + i
-    /home/mahmoud/.bin/networkmanager_dmenu
+    networkmanager_dmenu
 
 # Open bluetooth
 super + b
-    /home/mahmoud/.bin/rofi-bluetooth
+    rofi-bluetooth
 
 # open powermenu
 super + p
-    /home/mahmoud/.bin/poww
+    rofi-poww
 
 # status (for when in fullscreen)
 super + x
@@ -31,32 +31,32 @@ super + l
     betterlockscreen -l #blur
 
 # launch software
-super + {w, f, s, t, m, n, a, g}
-    {firefox, thunar, LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify, telegram-desktop, mailspring, notion-app, anki --disable-seccomp-filter-sandbox, teams --disable-seccomp-filter-sandbox}
+super + {a, f, g, m, o, s, t, w}
+    {anki, thunar, teams, mailspring, obsidian, LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify, telegram-desktop, firefox}
 
 # close and kill
 super + {_,shift + }q
     bspc node -{c,k}
 
 # window state
-super + shift + {d,w,t,f}
-    bspc node -t {floating,pseudo_tiled,tiled,fullscreen}
+super + shift + {d, w, t, f}
+    bspc node -t {floating, pseudo_tiled, tiled, fullscreen}
 
 # focus the node in the given direction
 super + {_,shift + }{Left,Down,Up,Right}
-    bspc node -{f,s} {west,south,north,east}
+    bspc node -{f, s} {west,south,north,east}
 
 # alt tab
 super + {_,shift + }Tab
-    bspc node -f {next,prev}.local.!hidden.window
+    bspc node -f {next, prev}.local.!hidden.window
 
 # move forward/backword desktops
 super + shift + {a,s}
     bspc desktop -f {prev,next}
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-    bspc {desktop -f,node -d} '^{1-9,10}'
+super + {_,shift + }{1-9}
+    bspc {desktop -f, node -d} '^{1-9}'
 
 # expand a window by moving one of its side outward
 super + ctrl + {Left,Down,Up,Right}
@@ -109,3 +109,7 @@ super + alt + {q,r}
 # reload configurations
 super + shift + r
     pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+
+# Toggle right click context menu.
+~button3
+	xqp 0 $(xdo id -N Bspwm -n root) && jgmenu_run
