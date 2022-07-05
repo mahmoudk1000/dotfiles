@@ -14,6 +14,10 @@ super + r
 super + i
     /home/mahmoud/.bin/networkmanager_dmenu
 
+# Open bluetooth
+super + b
+    /home/mahmoud/.bin/rofi-bluetooth
+
 # open powermenu
 super + p
     /home/mahmoud/.bin/poww
@@ -27,8 +31,8 @@ super + l
     betterlockscreen -l #blur
 
 # launch software
-super + {w,f,s,t,m,n}
-    {firefox, thunar, LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify, telegram-desktop, mailspring, notion-app-enhanced}
+super + {w, f, s, t, m, n, a, g}
+    {firefox, thunar, LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify, telegram-desktop, mailspring, notion-app, anki --disable-seccomp-filter-sandbox, teams --disable-seccomp-filter-sandbox}
 
 # close and kill
 super + {_,shift + }q

@@ -1,0 +1,10 @@
+include "%L"
+
+<Multi_key> <grave> <A>			: "Ä"	Adiaeresis # LATIN CAPITAL LETTER A WITH DIAERESTS
+<Multi_key> <grave> <a>			: "ä"	adiaeresis # LATIN SMALL LETTER A WITH DIAERESIS
+<Multi_key> <grave> <U>			: "Ü"	Udiaeresis # LATIN CAPITAL LETTER U WITH DIAERESIS
+<Multi_key> <grave> <u>			: "ü"	udiaeresis # LATIN SMALL LETTER U WITH DIAERESIS
+<Multi_key> <grave> <O>			: "Ö"	Odiaeresis # LATIN CAPITAL LETTER O WITH DIAERESIS
+<Multi_key> <grave> <o>			: "ö"	odiaeresis # LATIN SMALL LETTER O WITH DIAERESIS
+<Multi_key> <s> <s>		    	: "ß"	ssharp # LATIN SMALL LETTER SHARP S
+<Multi_key> <S> <S>		    	: "ẞ"	U1e9e # LATIN CAPITAL LETTER SHARP S

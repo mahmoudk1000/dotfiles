@@ -2,9 +2,7 @@ configuration {
   modi: "drun";
   display-drun: "";
   drun-display-format: "{icon} {name}";
-  show-icons: true;
   font: "Iosevka 10";
-  icon-theme: "oomox-aesthetic-dark";
 }
 
 @theme "/dev/null"
@@ -22,7 +20,7 @@ window {
   border-color: @al;
   transparency: "real";
   orientation: vertical;
-  width: 40%;
+  width: 20%;
   text-color: @foreground;
   background-color: @bg;
 }
@@ -38,21 +36,16 @@ prompt {
   background-color: @al;
   vertical-align: 0.5;
   padding: 0.6em 0.75em;
+  width: 100%;
 }
 inputbar {
   orientation: horizontal;
-  children: [ prompt, entry ];
+  children: [ prompt ];
 }
 listview {
-  columns: 2;
+  columns: 1;
   spacing: 1.5px;
-  lines: 10;
-}
-entry {
-  placeholder: "Search...";
-  expand: false;
-  width: 25%;
-  padding: 0.65em;
+  lines: 5;
 }
 element {
   background-color: @bg;

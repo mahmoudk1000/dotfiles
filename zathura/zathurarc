@@ -8,44 +8,44 @@ set font "Iosevka 12"
 #
 #
 set notification-error-bg       "#F28FAD" # Red
-set notification-error-fg       "#DCDDED" # Foreground
+set notification-error-fg       "#E2E8EE" # Foreground
 set notification-warning-bg     "#FAE3B0" # Orange
 set notification-warning-fg     "#151D25" # Selection
 set notification-bg             "#11171D" # Background
-set notification-fg             "#DCDDED" # Foreground
+set notification-fg             "#E2E8EE" # Foreground
 
 set completion-bg               "#11171D" # Background
 set completion-fg               "#A8A8A8" # Comment
 set completion-group-bg         "#11171D" # Background
 set completion-group-fg         "#A8A8A8" # Comment
 set completion-highlight-bg     "#151D25" # Selection
-set completion-highlight-fg     "#DCDDED" # Foreground
+set completion-highlight-fg     "#E2E8EE" # Foreground
 
 set index-bg                    "#11171D" # Background
-set index-fg                    "#DCDDED" # Foreground
+set index-fg                    "#E2E8EE" # Foreground
 set index-active-bg             "#151D25" # Current Line
-set index-active-fg             "#DCDDED" # Foreground
+set index-active-fg             "#E2E8EE" # Foreground
 
 set inputbar-bg                 "#11171D" # Background
-set inputbar-fg                 "#DCDDED" # Foreground
+set inputbar-fg                 "#E2E8EE" # Foreground
 set statusbar-bg                "#11171D" # Background
-set statusbar-fg                "#DCDDED" # Foreground
+set statusbar-fg                "#E2E8EE" # Foreground
 
 set highlight-color             "#D7C1ED" # Orange
 set highlight-active-color      "#fca2aa" # Pink
 
 set default-bg                  "#11171D" # Background
-set default-fg                  "#DCDDED" # Foreground
+set default-fg                  "#E2E8EE" # Foreground
 
 set render-loading              true
 set render-loading-fg           "#11171D" # Background
-set render-loading-bg           "#DCDDED" # Foreground
+set render-loading-bg           "#E2E8EE" # Foreground
 
 # Recolor mode settings
 #
 #
 set recolor-lightcolor          "#11171D" # Background
-set recolor-darkcolor           "#DCDDED" # Foreground
+set recolor-darkcolor           "#E2E8EE" # Foreground
 
 # Startup options
 #

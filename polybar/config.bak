@@ -1,0 +1,182 @@
+;; ==================== COLORS ======================
+[colors]
+background = ${xrdb:polybar.background}
+foreground = ${xrdb:polybar.foreground}
+
+alt         = ${xrdb:polybar.color0}
+red         = ${xrdb:Polybar.color1}
+green       = ${xrdb:Polybar.color2}
+yellow      = ${xrdb:Polybar.color3}
+blue        = ${xrdb:Polybar.color4}
+magenta     = ${xrdb:Polybar.color5}
+cyan        = ${xrdb:Polybar.color6}
+white       = ${xrdb:Polybar.color7}
+black       = ${xrdb:Polybar.color8}
+;; ===================== BARS ========================
+[bar/main]
+monitor = eDP1
+bottom = true
+height = 28
+offset-y = 0%
+offset-x = 0%
+radius-top = 0
+radius-bottom = 0
+
+fixed-center = true
+wm-restack = bspwm
+override-redirect = true
+
+font-0 = Iosevka:style=Semibold:size=10;3
+font-1 = Material Design Icons Desktop:size=10;3
+font-2 = Iosevka:style=Semibold:size=17;4.8
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+[bar/bottom]
+inherit = bar/main
+width = 100%
+
+border-size = 5
+border-color = ${colors.background}
+
+modules-left = start bspwm end
+modules-center = start time end
+modules-right =  start spotify lang pulseaudio backlight battery end
+
+;; ===================== MODULES =======================
+[module/start]
+type = custom/text
+
+content = 
+content-foreground = ${colors.alt}
+content-font = 3
+
+[module/end]
+type = custom/text
+
+content = 
+content-foreground = ${colors.alt}
+content-font = 3
+
+;; ===================== BSPWM =======================
+[module/bspwm]
+type = internal/bspwm
+
+enable-click = true
+enable-scroll = true
+
+ws-icon-0 = 1;1
+ws-icon-1 = 2;2
+ws-icon-2 = 3;3
+ws-icon-3 = 4;4
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+
+label-focused = ⬢
+label-focused-padding = 1
+label-focused-foreground = ${colors.blue}
+label-focused-background = ${colors.alt}
+
+label-occupied = ⬢
+label-occupied-padding = 1
+label-occupied-foreground = ${colors.black}
+label-occupied-background = ${colors.alt}
+
+label-urgent = ⬢
+label-urgent-padding = 1
+label-urgent-foreground = ${colors.red}
+label-urgent-background = ${colors.alt}
+
+label-empty = ⬡
+label-empty-padding = 1
+label-empty-foreground = ${colors.background}
+label-empty-background = ${colors.alt}
+
+;; =================== BATTERY =====================
+
+[module/battery]
+type = internal/battery
+full-at = 99
+battery = BAT0
+adapter = ADP0
+poll-interval = 5
+
+format-charging = 󰂄<label-charging>
+format-charging-foreground = ${colors.blue}
+format-charging-background = ${colors.alt}
+format-charging-padding = 1
+
+format-discharging = 󰁿<label-discharging>
+format-discharging-foreground = ${colors.magenta}
+format-discharging-background = ${colors.alt}
+format-discharging-padding = 1
+
+label-full = Aufgeladen
+label-full-foreground = ${colors.magenta}
+label-full-background = ${colors.alt}
+label-full-padding = 1
+
+;; =================== BACKLIGHT =====================
+
+[module/backlight]
+type = custom/script
+format = 󰛨 <label>
+format-padding = 1
+format-foreground = ${colors.red}
+format-background = ${colors.alt}
+exec = ~/.bin/light.sh
+interval = 0
+
+;; =================== LANG =====================
+
+[module/lang]
+type = custom/script
+format = 󰖟 <label>
+format-padding = 1
+format-foreground = ${colors.green}
+format-background = ${colors.alt}
+exec = ~/.bin/lang.sh
+interval = 1
+
+;; =================== PULSEAUDIO =====================
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = 󰕾 <label-volume>
+format-volume-padding = 1
+format-volume-foreground = ${colors.yellow}
+format-volume-background = ${colors.alt}
+label-volume =  %percentage%
+label-muted = STUMM
+label-muted-foreground = ${colors.yellow}
+label-muted-background = ${colors.alt}
+label-muted-padding = 1
+
+;; ===================== SPOTIFY =====================
+
+[module/spotify]
+type = custom/script
+format = 󰽰 <label>
+format-padding = 1
+format-foreground = ${colors.magenta}
+format-background = ${colors.alt}
+exec = ~/.bin/spotify_status.py
+click-left = playerctl play-pause
+interval = 1
+
+;; ====================== TIME ========================
+
+[module/time]
+type = internal/date
+interval = 1
+date = %a %d-%m
+;time = %I:%M %p
+time = %H:%M
+format = 󱑂 <label>
+format-padding = 1
+format-foreground = ${colors.blue}
+format-background = ${colors.alt}
+label = %date% • %time%

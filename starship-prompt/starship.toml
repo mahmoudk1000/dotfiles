@@ -1,0 +1,86 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# makes prompt a single line
+[line_break]
+disabled = false
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character] # The name of the module we are configuring is "character"
+success_symbol = "[➜](bold green) " # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[✘](bold red) "
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[directory]
+truncation_length = 5
+# format = "[$path]($style)[$lock_symbol]($lock_style) "
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+[hostname] #$hostname
+ssh_only = false
+format = "[ma7m0d]($style) in "
+trim_at = "-"
+style = "bold dimmed yellow"
+disabled = false
+
+[cmd_duration]
+format = "took [$duration]($style) "
+style = "bold yellow"
+disabled = false
+
+[time]
+disabled = true
+format = '[\[ $time \]]($style) '
+time_format = "%T"
+utc_time_offset = "+2"
+time_range = "10:00:00-14:00:00"
+command_timeout = 5
+
+[git_branch]
+# disabled = true
+# symbol = ""
+symbol = " " # alternate
+style = "fg:#b5e8e0 bg:#0C1115"
+# truncation_length = 4
+# truncation_symbol = ""
+format = "[[](fg:#0C1115 bg:#11171D)$symbol$branch[](bg:#11171D fg:#0C1115)]($style)"
+
+[git_commit]
+# disabled = true
+style = "fg:#D7C1ED bg:#0C1115"
+commit_hash_length = 4
+# only_detached = true
+format = "[[](fg:#0C1115 bg:#11171D)#$hash[](fg:#0C1115 bg:#11171D)]($style)"
+
+[git_state]
+# disabled = true
+style = "fg:#FAE3B0 bg:#0C1115"
+rebase = "rebasing"
+merge = "merging"
+revert = "reverting"
+cherry_pick = " picking"
+bisect = "bisecting"
+am = "am'ing"
+am_or_rebase = "am/rebase"
+format = '\([[](fg:#0C1115 bg:#11171D)$state($progress_current/$progress_total)[](fg:#0C1115 bg:#11171D)]($style)\)'
+
+[git_status]
+# disabled = true
+style = "fg:#FAE3B0 bg:#0C1115"
+stashed = "  ${count}"
+ahead = " ﲗ ${count}"
+behind = "↧ ${count}"
+diverged = "李${ahead_count} ${behind_count}"
+conflicted = "  ${count}"
+deleted = "  ${count}"
+renamed = "﫦 ${count} "
+modified = " 凜${count}"
+staged = "  ${count}"
+untracked = "  ${count}"
+format = "([[](fg:#0C1115 bg:#11171D)$stashed$staged$modified$renamed$untracked$deleted$conflicted$ahead_behind[](fg:#0C1115 bg:#11171D)]($style))"

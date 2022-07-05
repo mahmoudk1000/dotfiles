@@ -8,7 +8,10 @@ s() { pkill -x "$1"; { sleep 0.1; "$@" & }; }
 # Desktop
 bspc monitor -d 1 2 3 4 5 6 7 8 9
 
-# wall
+# fix some Java applications
+wmname LG3D
+
+# Wall
 ~/.fehbg &
 
 # Call col
@@ -24,7 +27,7 @@ c right_padding     0
 c bottom_padding    50
 c left_padding      0
 
-# monocle
+# Monocle
 c single_monocle      true
 c gapless_monocle     false
 c borderless_monocle  false
@@ -43,28 +46,25 @@ c normal_border_color   "#$bg0"
 c active_border_color   "#$bg2"
 c focused_border_color  "#$bg1"
 
-# rules
+# Rules
 R feh state=floating follow=on
+R mpv state=floating follow=on
 R galculator state=floating follow=on
 R firefox desktop='^1' follow=on
 R Thunar desktop='^4' follow=on
-R ferdi desktop='^5' follow=off
-R notion-app-enhanced desktop='^6' follow=on
+R notion-app desktop='^6' follow=on
 R Mailspring desktop='^7' follow=off
 R TelegramDesktop desktop='^8' follow=on
 R Spotify desktop='^9' follow=off
 
-# necessities
+# Necessities
 {
-    pkill pipewire
-    eval $(gnome-keyring-daemon --start)
-    xset r rate 250 30
+    xset r rate 200 30
     xsetroot -cursor_name left_ptr
     light -I
-    setxkbmap -model pc104 -layout us,ara,de -variant ,, -option grp:alt_shift_toggle
 } >/dev/null 2>&1
 
-# app
+# Startups
 s pipewire-run
 s borders
 s picom --experimental-backends -b
@@ -73,4 +73,3 @@ s sxhkd
 s barr
 s flameshot
 s unclutter -idle 2
-s mpd -v

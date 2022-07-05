@@ -14,7 +14,7 @@ white        = ${xrdb:Polybar.color7}
 dark         = ${xrdb:Polybar.color8}
 ;; ===================== BARS ========================
 [bar/main]
-monitor = eDP1
+monitor = eDP-1
 bottom = true
 height = 40
 offset-y = 10
@@ -41,22 +41,22 @@ modules-center = bspwm
 
 [bar/zwei]
 inherit = bar/main
-width = 7%
-offset-x = 1563.6
+width = 9.5%
+offset-x = 1458.2
 
-modules-center = pulseaudio backlight
+modules-center = pulseaudio backlight bluetooth
 
 [bar/drei]
 inherit = bar/main
 width = 5%
-offset-x = 1708
+offset-x = 1650.4
 
 modules-center = battery
 
 [bar/vier]
 inherit = bar/main
-width = 5%
-offset-x = 1814
+width = 8%
+offset-x = 1756.4
 
 modules-center = time
 
@@ -109,7 +109,7 @@ label-full-padding = 1
 [module/backlight]
 type = custom/script
 format = 󰛨 <label>
-format-padding = 1
+format-padding = 2
 format-foreground = ${colors.red}
 exec = ~/.bin/light.sh
 interval = 0
@@ -131,7 +131,6 @@ interval = 1
 type = internal/pulseaudio
 
 format-volume = 󰕾 <label-volume>
-format-volume-padding = 1
 format-volume-foreground = ${colors.yellow}
 label-volume =  %percentage%
 label-muted = STUMM
@@ -144,7 +143,17 @@ label-muted-padding = 1
 type = internal/date
 interval = 1
 time = %H:%M
+date = %b %d,
 format = 󱑂 <label>
 format-padding = 1
 format-foreground = ${colors.green}
-label = %time%
+label = %date% %time%
+
+;; ==================== Bluetooth =====================
+[module/bluetooth]
+type = custom/script
+exec = ~/.bin/rofi-bluetooth --status
+interval = 1
+click-left = ~/.bin/rofi-bluetooth
+format = <label>
+format-foreground = ${colors.cyan}

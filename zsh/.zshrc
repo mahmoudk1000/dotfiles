@@ -96,6 +96,39 @@ command_not_found_handler() {
 }
 fpath=($fpath "/home/mahmoud/.zfunctions")
 
-# Set typewritten ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt typewritten
+alias luamake=/home/mahmoud/Labby/lua-language-server/3rd/luamake/luamake
+export PATH="$PATH:$HOME/.spicetify"
+export PATH=$PATH:/home/mahmoud/.spicetify
+
+##  Pista prompt
+#autoload -Uz add-zsh-hook
+#_pista_prompt() {
+#	PROMPT="$(pista -z)"   # `pista -zm` for the miminal variant
+#}
+#add-zsh-hook precmd _pista_prompt
+
+# prompt string to display, for regular users
+#export PROMPT_CHAR="$"
+#export PROMPT_CHAR_COLOR="magenta"
+
+# prompt string to display, for the root user
+#export PROMPT_CHAR_ROOT="#"
+#export PROMPT_CHAR_ROOT_COLOR="red"
+
+# symbol to represent clean repo state
+#export GIT_CLEAN="·"
+#export GIT_CLEAN_COLOR="blue"
+
+# symbol to represent unstaged repo state
+#export GIT_WT_MODIFIED="×"
+#export GIT_WT_MODIFIED_COLOR="red"
+
+# symbol to represent staged repo state
+#export GIT_INDEX_MODIFIED="±"
+#export GIT_INDEX_MODIFIED_COLOR="yellow"
+
+# if HEAD ref peels to branch
+#export BRANCH_COLOR="green"
+
+# if HEAD ref peels to a commit (detached state)
+#export COMMIT_COLOR="green"
